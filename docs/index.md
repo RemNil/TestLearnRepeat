@@ -1,5 +1,5 @@
 ---
-title: "Some notes."
+title: "Translational Research as a learning system"
 author: "Merlin Bittlinger"
 date: "2019-11-17"
 site: bookdown::bookdown_site
@@ -9,7 +9,7 @@ biblio-style: apalike
 link-citations: yes
 github-repo: RemNil/remnil.github.io
 url: 'https://remnil.github.io/'
-description: "Some notes."
+description: "Test. Learn. Repeat."
 ---
 
 # Preface {-}
