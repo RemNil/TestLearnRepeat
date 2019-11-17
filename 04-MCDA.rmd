@@ -1,1 +1,3 @@
 # Multi-Criteri Decision Analysis
+
+WeightLifter: Visual Weight Space Explorationfor Multi-Criteria Decision Making
