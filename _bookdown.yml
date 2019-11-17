@@ -1,7 +1,12 @@
 book_filename: "bookdown-start"
 chapter_name: "Chapter "
+<<<<<<< HEAD
 repo: https://github.com/remnil/bookdown-start
 output_dir: docs
+=======
+repo: https://github.com/RemNil/bookdown-start
+output_dir: "docs"
+>>>>>>> 295230a37e04d26bdfd523dc9d4f55a4d003a2e4
 rmd_files: ["index.Rmd", "01-Introduction.Rmd", "02-Diving-In.Rmd"]
 clean: [packages.bib, bookdown.bbl]
 new_session: yes
