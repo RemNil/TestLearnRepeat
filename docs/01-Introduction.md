@@ -1,4 +1,5 @@
 # Introduction
 
-This is the first real chapter.
+Previous work: 
+- [@kimmelman2015structure]
 
