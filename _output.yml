@@ -10,9 +10,10 @@ bookdown::gitbook:
         <li><a href="https://remnil.github.io/" target="BIH QUEST Center"</a></li>
 bookdown::pdf_book:
   includes:
-    in_header: preamble.tex
+    in_header: [preamble.tex, hypothesis.html, google_analytics.html]
   latex_engine: xelatex
   citation_package: natbib
+  before_body: open_review_block.html
+  after_body: call_to_action_block.html
 bookdown::epub_book:
   stylesheet: style.css
- 

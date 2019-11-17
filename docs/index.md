@@ -13,5 +13,5 @@ description: "Some notes."
 ---
 
 # Preface {-}
+[Open peer-review](http://www.openreviewtoolkit.org/) is enabled using [hypothes.is](https://web.hypothes.is/), to facilitaty sentence-by-sentence annotation from readers directly on this page.
 
-[Open peer-review](http://www.openreviewtoolkit.org/)
