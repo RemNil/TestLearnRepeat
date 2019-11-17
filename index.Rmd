@@ -1,4 +1,4 @@
---- 
+---
 title: "Some notes."
 author: "Merlin Bittlinger"
 date: "`r Sys.Date()`"

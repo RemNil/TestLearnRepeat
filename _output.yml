@@ -5,7 +5,7 @@ bookdown::gitbook:
     toc:
       collapse: subsection
       before: |
-        <li><a href="./">Translationa Research as a learnin system</a></li>
+        <li><a href="./">Translational Research as a learning system</a></li>
       after: |
         <li><a href="https://remnil.github.io/" target="BIH QUEST Center</a></li>
 bookdown::pdf_book:
@@ -15,3 +15,4 @@ bookdown::pdf_book:
   citation_package: natbib
 bookdown::epub_book:
   stylesheet: style.css
+ 
