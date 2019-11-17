@@ -7,7 +7,7 @@ bookdown::gitbook:
       before: |
         <li><a href="./">Ethics & Translational Research</a></li>
       after: |
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+        <li><a href="https://www.bihealth.org/de/forschung/quest-center/projekte/translationale-bioethik/good-justificatory-practices-projekt/" target="BIH QUEST Center</a></li>
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
