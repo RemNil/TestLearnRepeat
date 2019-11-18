@@ -2,7 +2,6 @@ book_filename: "bookdown-start"
 chapter_name: "Chapter "
 repo: https://github.com/RemNil/bookdown-start
 output_dir: docs
-download: ["_main.pdf", "PDF"]
 rmd_files: ["index.Rmd", "01-Introduction.Rmd", "02-Diving-In.Rmd",
             "04-MCDA.Rmd", "07-References.Rmd"]
 clean: [packages.bib, bookdown.bbl]

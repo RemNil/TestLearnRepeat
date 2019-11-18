@@ -2,14 +2,14 @@
 title: "Translational Research as a learning system"
 author: "Merlin Bittlinger"
 date: "2019-11-18"
-site: bookdown::bookdown_site
+description: Test. Learn. Repeat.
 documentclass: book
-bibliography: [book.bib]
-biblio-style: apalike
-link-citations: yes
 github-repo: RemNil/remnil.github.io
-url: 'https://remnil.github.io/'
-description: "Test. Learn. Repeat."
+link-citations: yes
+bibliography: book.bib
+site: bookdown::bookdown_site
+biblio-style: apalike
+url: https://remnil.github.io/
 ---
 
 # Preface {-}

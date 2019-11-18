@@ -1,16 +1,5 @@
 bookdown::gitbook:
-      includes:
-        in_header: [preamble.tex, hypothesis.html, google_analytics.html]
-        before_body: open_review_block.html
-        after_body: call_to_action_block.html
-        css: style.css
-bookdown::pdf_book:
-      includes:
-        in_header: [preamble.tex]
-        latex_engine: xelatex
-        citation_package: natbib
-bookdown::epub_book:
-  stylesheet: style.css
+  css: style.css
   split_by: chapter
   config:
     toc:
@@ -22,7 +11,7 @@ bookdown::epub_book:
     toolbar:
       position: fixed
     edit : null
-    download: null
+    download: ["bookdown-start.pdf", "bookdown-start.epub"]
     search: yes
     fontsettings:
       theme: white
@@ -38,3 +27,13 @@ bookdown::epub_book:
       instapaper: no
       vk: no
       all: ['facebook', 'twitter', 'linkedin']
+    bookdown::pdf_book:
+      includes:
+        in_header: [preamble.tex, hypothesis.html, google_analytics.html]
+        latex_engine: xelatex
+        citation_package: natbib
+        before_body: open_review_block.html
+        after_body: call_to_action_block.html
+        keep_tex: yes
+    bookdown::epub_book:
+    stylesheet: style.css
