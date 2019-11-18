@@ -4,5 +4,5 @@ In later stages of clinical trial, there is a well-established concept that can 
 In early phases, information is sparse and uncertainty abundant. As such clinical equipoise needs to be established.
 
 
-![Black Panther, 2018, Marvel Studios](https://media.giphy.com/media/1SwSneBv946CZVYaNm/giphy.gif)
+![Black Panther, 2018, Marvel Studios](https://media.giphy.com/media/1SwSneBv946CZVYaNm/giphy.gif){width=350px}
 
