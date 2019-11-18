@@ -1,9 +1,10 @@
 bookdown::gitbook:
+   includes:
+    in_header: [preamble.tex, hypothesis.html, google_analytics.html]
+    before_body: open_review_block.html
+    after_body: [call_to_action_block.html, google_translate.html]
+  css: style.css
   config:
-    includes:
-      before_body: open_review_block.html
-      after_body: call_to_action_block.html
-    css: style.css
     toc:
       collapse: subsection
       before: |
@@ -33,7 +34,6 @@ bookdown::gitbook:
       all: ['facebook', 'twitter', 'linkedin']
     bookdown::pdf_book:
       includes:
-        in_header: [preamble.tex, hypothesis.html, google_analytics.html]
         latex_engine: xelatex
         citation_package: natbib
         keep_tex: yes
