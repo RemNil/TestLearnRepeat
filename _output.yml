@@ -1,8 +1,9 @@
 bookdown::gitbook:
-  css: style.css
-  split_by: chapter
-  split_bib: no
   config:
+    includes:
+      before_body: open_review_block.html
+      after_body: call_to_action_block.html
+    css: style.css
     toc:
       collapse: subsection
       before: |
@@ -14,6 +15,8 @@ bookdown::gitbook:
     edit : null
     download: ["bookdown-start.pdf", "bookdown-start.epub"]
     search: yes
+    split_by: chapter
+    split_bib: no
     fontsettings:
       theme: white
       family: sans
@@ -33,8 +36,6 @@ bookdown::gitbook:
         in_header: [preamble.tex, hypothesis.html, google_analytics.html]
         latex_engine: xelatex
         citation_package: natbib
-        before_body: open_review_block.html
-        after_body: call_to_action_block.html
         keep_tex: yes
     bookdown::epub_book:
     stylesheet: style.css

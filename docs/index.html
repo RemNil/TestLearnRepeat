@@ -53,7 +53,6 @@
 
 
 
-<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -153,17 +152,22 @@ gitbook.start({
 "toc": {
 "collapse": "subsection"
 },
+"includes": {
+"before_body": "open_review_block.html",
+"after_body": "call_to_action_block.html"
+},
+"css": "style.css",
 "toolbar": {
 "position": "fixed"
 },
 "search": true,
+"split_by": "chapter",
+"split_bib": false,
 "bookdown::pdf_book": {
 "includes": {
 "in_header": ["preamble.tex", "hypothesis.html", "google_analytics.html"],
 "latex_engine": "xelatex",
 "citation_package": "natbib",
-"before_body": "open_review_block.html",
-"after_body": "call_to_action_block.html",
 "keep_tex": true
 }
 },

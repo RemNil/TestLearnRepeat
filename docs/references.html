@@ -53,7 +53,6 @@
 
 
 
-<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -71,7 +70,7 @@
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
-<li class="chapter" data-level="2" data-path="diving-in.html"><a href="diving-in.html"><i class="fa fa-check"></i><b>2</b> Diving In</a></li>
+<li class="chapter" data-level="2" data-path="translation.html"><a href="translation.html"><i class="fa fa-check"></i><b>2</b> Translation</a></li>
 <li class="chapter" data-level="3" data-path="justification.html"><a href="justification.html"><i class="fa fa-check"></i><b>3</b> Justification</a></li>
 <li class="chapter" data-level="4" data-path="multi-criteri-decision-analysis.html"><a href="multi-criteri-decision-analysis.html"><i class="fa fa-check"></i><b>4</b> Multi-Criteri Decision Analysis</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -101,6 +100,9 @@
 <div id="refs" class="references">
 <div>
 <p>Kimmelman, Jonathan, and Alex John London. 2015. “The Structure of Clinical Translation: Efficiency, Information, and Ethics.” <em>Hastings Center Report</em> 45 (2): 27–39.</p>
+</div>
+<div>
+<p>Pajer, Stephan, Marc Streit, Thomas Torsney-Weir, Florian Spechtenhauser, Torsten Möller, and Harald Piringer. 2016. “Weightlifter: Visual Weight Space Exploration for Multi-Criteria Decision Making.” <em>IEEE Transactions on Visualization and Computer Graphics</em> 23 (1): 611–20.</p>
 </div>
 </div>
 </div>
@@ -150,17 +152,22 @@ gitbook.start({
 "toc": {
 "collapse": "subsection"
 },
+"includes": {
+"before_body": "open_review_block.html",
+"after_body": "call_to_action_block.html"
+},
+"css": "style.css",
 "toolbar": {
 "position": "fixed"
 },
 "search": true,
+"split_by": "chapter",
+"split_bib": false,
 "bookdown::pdf_book": {
 "includes": {
 "in_header": ["preamble.tex", "hypothesis.html", "google_analytics.html"],
 "latex_engine": "xelatex",
 "citation_package": "natbib",
-"before_body": "open_review_block.html",
-"after_body": "call_to_action_block.html",
 "keep_tex": true
 }
 },
