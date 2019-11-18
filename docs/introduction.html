@@ -24,7 +24,7 @@
 <meta name="author" content="Merlin Bittlinger" />
 
 
-<meta name="date" content="2019-11-17" />
+<meta name="date" content="2019-11-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -96,8 +96,7 @@
             <section class="normal" id="section-">
 <div id="introduction" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
-<p>Previous work:
-- <span class="citation">(Kimmelman and London <a href="#ref-kimmelman2015structure" role="doc-biblioref">2015</a>)</span></p>
+<p>Previous conceptual work developed a useful model clincal development as an information maximization process <span class="citation">(Kimmelman and London <a href="#ref-kimmelman2015structure" role="doc-biblioref">2015</a>)</span>. The term “intervention ensemble” <span class="citation">(Kimmelman and London <a href="#ref-kimmelman2015structure" role="doc-biblioref">2015</a>)</span> introduces an important <em>products</em>-<em>process</em> disctinction.</p>
 
 </div>
 <h3>References</h3>
@@ -130,29 +129,44 @@ gitbook.start({
 "sharing": {
 "facebook": true,
 "twitter": true,
-"linkedin": false,
+"linkedin": true,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin"],
+"github": true,
+"google": false
 },
 "fontsettings": {
 "theme": "white",
 "family": "sans",
 "size": 2
 },
-"edit": {
-"link": null,
-"text": null
-},
+"edit": null,
 "history": {
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["bookdown-start.pdf", "bookdown-start.epub"],
 "toc": {
 "collapse": "subsection"
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": true,
+"bookdown::pdf_book": {
+"includes": {
+"in_header": ["preamble.tex", "hypothesis.html", "google_analytics.html"],
+"latex_engine": "xelatex",
+"citation_package": "natbib",
+"before_body": "open_review_block.html",
+"after_body": "call_to_action_block.html",
+"keep_tex": true
 }
+},
+"bookdown::epub_book": null,
+"stylesheet": "style.css"
 });
 });
 </script>
