@@ -10,7 +10,7 @@ According to the [published data](https://open.fda.gov/) from the U.S. Food and 
 
 ## How to learn best?
 
-```{r include=TRUE, results=TRUE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE }
+```{r eval=TRUE, include=FALSE, results=TRUE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE }
 # library("devtools"); devtools::install_github("ropenhealth/openfda")
 library("openfda")
 
