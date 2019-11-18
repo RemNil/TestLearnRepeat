@@ -49,5 +49,6 @@ Numb_query = fda_query("/drug/event.json") %>%
 
 quetia_num = Numb_query %>% fda_filter("patient.drug.openfda.generic_name", "quetiapine") %>% fda_exec()
 
+str(quetia_num)
 fda_plot(quetia_num)
 ```
