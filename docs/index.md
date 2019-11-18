@@ -26,10 +26,8 @@ The complexity of clinical development gives rise to a garden of forking paths.
 div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
 </style>
 <div class = "blue">
-
 - This is my first conclusion
 - This is my second conclusion
-
 </div>
 
 [Open peer-review](http://www.openreviewtoolkit.org/) is enabled using [hypothes.is](https://web.hypothes.is/). This facilitates sentence-by-sentence annotation from readers directly on this page.
