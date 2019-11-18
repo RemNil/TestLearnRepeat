@@ -3,8 +3,8 @@ title: "Translational Research as a learning system"
 author: "Merlin Bittlinger"
 date: "2019-11-18"
 description: Test. Learn. Repeat.
-documentclass: book
 github-repo: RemNil/remnil.github.io
+documentclass: book
 link-citations: yes
 bibliography: book.bib
 site: bookdown::bookdown_site

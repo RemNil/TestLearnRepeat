@@ -1,4 +1,4 @@
-# Multi-Criteri Decision Analysis
+# Multi-Criteria Decision Analysis
 
 
 The beautiful fractal tree will be replaced by text soon. In the meantime, here is a good read:
