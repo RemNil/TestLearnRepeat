@@ -16,7 +16,8 @@ url: https://remnil.github.io/
 
 Metrics to evaluate "translational success" in clinical research provide general incentive structures that determine what learning goal may or may not be achieved by optimizing the success rate of Translational Research. "Information gain per capita of accepted research burdens" is a concept introduced to further think about how the current regulatory oversight system learns from past [clinical R&D efforts](https://www.ema.europa.eu/en/human-regulatory/research-development) (work in progress).
 
-The complexity of clinical development gives rise to a garden of forking paths.
+The complexity of clinical development gives rise to a garden of forking paths. As a result, also the  conceptualization of the structure and mechanisms at play are challenging to fully understand. Even if starting the journey together, it is highly unlikely that any two people arrive at the end of the journey in the same place. 
 
+On this page, I summarize some of my readings in an unsystematic and eclectic way. The aim is not necessarily to say something entirely new, but perhaps someone who finds the way to this place may also find some value in the information being discussed.
 
 [Open peer-review](http://www.openreviewtoolkit.org/) is enabled using [hypothes.is](https://web.hypothes.is/). This facilitates sentence-by-sentence annotation from readers directly on this page.
