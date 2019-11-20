@@ -80,7 +80,7 @@ FDA Adverse Event Reporting System ([FAERS](https://open.fda.gov/data/faers/)). 
 
 ### Data cleaning
 If we run a search on the official release of the [FDA data](https://open.fda.gov/) using the [openFDA R package](https://github.com/rOpenHealth/openfda), we obtain a lot of nonsense data. For example, for [quetiapine](https://en.wikipedia.org/wiki/Quetiapine), we see that there are frequencies returned for terms such as "disorder", "unknown", "indication", "for", "product", etc. However, what we would want is simply a list with medical indications and the frequency of reported [sAE](https://en.wikipedia.org/wiki/Serious_adverse_event).
-<<<<<<< HEAD
+
 
 `r knitr::kable(quetia_num)`
 
@@ -88,10 +88,9 @@ If we run a search on the official release of the [FDA data](https://open.fda.go
 [ShinyAPP openFDA](https://openfda.shinyapps.io/RR_D/).
 
 [ICH M2 EWG](https://admin.ich.org/sites/default/files/inline-files/ICH_ICSR_Specification_V2-3.pdf)
-=======
 
 `r knitr::kable(quetia_num)`
 
 ### Further readings
 [ShinyAPP openFDA](https://openfda.shinyapps.io/RR_D/).
->>>>>>> 56d90a2ec98377da7fa870faa03afee20f078076
+
