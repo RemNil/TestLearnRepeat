@@ -138,36 +138,36 @@ It seems there is a problem in that the text data is parsed into n-grams without
 library(dplyr)
 library(plotly)
 
-quetiapine_sAE<- filter(quetia_num, term == c("depression", "bipolar", "anxiety", 
-                                            "schizophrenia", "sleep", "insomnia",
-                                            "pain", "hypertension", "psychotic", 
-                                            "parkinson", "diabetes","dementia",
-                                            "schizoaffective", "gastrooesophageal", 
-                                            "affective", "hallucination",
-                                            "arthritis", "agitation", "sclerosis", 
-                                            "hyperactivity", "infection",	
-                                            "attention", "stress", "traumatic", 
-                                            "hypothyroidism", "pulmonary",
-                                            "narcolepsy", "rheumatoid","mood", 
-                                            "constipation", "asthma", "delusion",
-                                            "migraine", "psychosis", "mania", "muscle", 
-                                            "panic", "hepatitis", "cancer",
-                                            "cardiac", "nausea", "personality", 
-                                            "fibromyalgia", "epilepsy", "paranoid",
-                                            "obsessive", "thyroid", "compulsive", 
-                                            "convulsion", "crohn", "thrombosis",
-                                            "attack", "psoriasis", "myeloma", 
-                                            "headache"))
+                           
+indica.terms <- c("depression", "bipolar", "anxiety", "schizophrenia", "sleep", "insomnia",
+                  "pain", "hypertension", "psychotic", 
+                  "parkinson", "diabetes","dementia",
+                  "schizoaffective", "gastrooesophageal", 
+                  "affective", "hallucination",
+                  "arthritis", "agitation", "sclerosis", 
+                  "hyperactivity", "infection",	
+                  "attention", "stress", "traumatic", 
+                  "hypothyroidism", "pulmonary",
+                  "narcolepsy", "rheumatoid","mood", 
+                  "constipation", "asthma", "delusion",
+                  "migraine", "psychosis", "mania", "muscle", 
+                  "panic", "hepatitis", "cancer",
+                  "cardiac", "nausea", "personality", 
+                  "fibromyalgia", "epilepsy", "paranoid",
+                  "obsessive", "thyroid", "compulsive", 
+                  "convulsion", "crohn", "thrombosis",
+                  "attack", "psoriasis", "myeloma", 
+                  "headache")
 
-plot_ly(data = quetiapine_sAE, 
-        x = quetiapine_sAE$term, 
-        y = quetiapine_sAE$count, 
-        type = "scatter", mode = "markers") %>%
-  layout(title = "Scatterplot", 
-         autosize = F, width = 300, height = 300)
+quetiapine_sAE <- filter(quetia_num, quetia_num$term %in% indica.terms)
 ```
 
-<!--html_preserve--><div id="htmlwidget-a398ad0a1c0bdfb74657" style="width:672px;height:480px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-a398ad0a1c0bdfb74657">{"x":{"visdat":{"254419153a03":["function () ","plotlyVisDat"]},"cur_data":"254419153a03","attrs":{"254419153a03":{"x":[],"y":[],"mode":"markers","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"width":300,"height":300,"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Scatterplot","autosize":false,"xaxis":{"domain":[0,1],"automargin":true,"title":[]},"yaxis":{"domain":[0,1],"automargin":true,"title":[]},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"mode":"markers","type":"scatter","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+
+
+
+## Quetiapine
+
+<!--html_preserve--><div id="htmlwidget-a1f523ff5e1f99bde748" style="width:100%;height:400px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a1f523ff5e1f99bde748">{"x":{"visdat":{"49b04608574b":["function () ","plotlyVisDat"]},"cur_data":"49b04608574b","attrs":{"49b04608574b":{"x":["depression","bipolar","anxiety","schizophrenia","sleep","insomnia","pain","hypertension","psychotic","parkinson","diabetes","dementia","schizoaffective","gastrooesophageal","affective","hallucination","arthritis","agitation","sclerosis","hyperactivity","infection","attention","stress","traumatic","hypothyroidism","pulmonary","narcolepsy","rheumatoid","mood","constipation","asthma","delusion","migraine","psychosis","mania","muscle","panic","hepatitis","cancer","cardiac","nausea","personality","fibromyalgia","epilepsy","paranoid","obsessive","thyroid","compulsive","convulsion","crohn","thrombosis","attack","psoriasis","myeloma","headache"],"y":[16416,16393,8068,7140,6399,5202,4795,3798,3229,2536,2131,1885,1780,1744,1671,1658,1373,1328,1326,1304,1293,1265,1240,1119,1095,1078,992,972,954,926,896,859,852,846,834,800,799,798,794,761,705,695,666,635,634,604,585,576,573,572,569,558,554,520,518],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":[],"type":"category","categoryorder":"array","categoryarray":["affective","agitation","anxiety","arthritis","asthma","attack","attention","bipolar","cancer","cardiac","compulsive","constipation","convulsion","crohn","delusion","dementia","depression","diabetes","epilepsy","fibromyalgia","gastrooesophageal","hallucination","headache","hepatitis","hyperactivity","hypertension","hypothyroidism","infection","insomnia","mania","migraine","mood","muscle","myeloma","narcolepsy","nausea","obsessive","pain","panic","paranoid","parkinson","personality","psoriasis","psychosis","psychotic","pulmonary","rheumatoid","schizoaffective","schizophrenia","sclerosis","sleep","stress","thrombosis","thyroid","traumatic"]},"yaxis":{"domain":[0,1],"automargin":true,"title":[]},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"x":["depression","bipolar","anxiety","schizophrenia","sleep","insomnia","pain","hypertension","psychotic","parkinson","diabetes","dementia","schizoaffective","gastrooesophageal","affective","hallucination","arthritis","agitation","sclerosis","hyperactivity","infection","attention","stress","traumatic","hypothyroidism","pulmonary","narcolepsy","rheumatoid","mood","constipation","asthma","delusion","migraine","psychosis","mania","muscle","panic","hepatitis","cancer","cardiac","nausea","personality","fibromyalgia","epilepsy","paranoid","obsessive","thyroid","compulsive","convulsion","crohn","thrombosis","attack","psoriasis","myeloma","headache"],"y":[16416,16393,8068,7140,6399,5202,4795,3798,3229,2536,2131,1885,1780,1744,1671,1658,1373,1328,1326,1304,1293,1265,1240,1119,1095,1078,992,972,954,926,896,859,852,846,834,800,799,798,794,761,705,695,666,635,634,604,585,576,573,572,569,558,554,520,518],"type":"scatter","mode":"markers","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 [ShinyAPP openFDA](https://openfda.shinyapps.io/RR_D/).

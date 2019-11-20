@@ -25,33 +25,54 @@ It seems there is a problem in that the text data is parsed into n-grams without
 library(dplyr)
 library(plotly)
 
-quetiapine_sAE<- filter(quetia_num, term == c("depression", "bipolar", "anxiety", 
-                                            "schizophrenia", "sleep", "insomnia",
-                                            "pain", "hypertension", "psychotic", 
-                                            "parkinson", "diabetes","dementia",
-                                            "schizoaffective", "gastrooesophageal", 
-                                            "affective", "hallucination",
-                                            "arthritis", "agitation", "sclerosis", 
-                                            "hyperactivity", "infection",	
-                                            "attention", "stress", "traumatic", 
-                                            "hypothyroidism", "pulmonary",
-                                            "narcolepsy", "rheumatoid","mood", 
-                                            "constipation", "asthma", "delusion",
-                                            "migraine", "psychosis", "mania", "muscle", 
-                                            "panic", "hepatitis", "cancer",
-                                            "cardiac", "nausea", "personality", 
-                                            "fibromyalgia", "epilepsy", "paranoid",
-                                            "obsessive", "thyroid", "compulsive", 
-                                            "convulsion", "crohn", "thrombosis",
-                                            "attack", "psoriasis", "myeloma", 
-                                            "headache"))
 
-plot_ly(data = quetiapine_sAE, 
-        x = quetiapine_sAE$term, 
-        y = quetiapine_sAE$count, 
-        type = "scatter", mode = "markers") %>%
-  layout(title = "Scatterplot", 
-         autosize = F, width = 300, height = 300)
+                           
+indica.terms <- c("depression", "bipolar", "anxiety", "schizophrenia", "sleep", "insomnia",
+                  "pain", "hypertension", "psychotic", 
+                  "parkinson", "diabetes","dementia",
+                  "schizoaffective", "gastrooesophageal", 
+                  "affective", "hallucination",
+                  "arthritis", "agitation", "sclerosis", 
+                  "hyperactivity", "infection",	
+                  "attention", "stress", "traumatic", 
+                  "hypothyroidism", "pulmonary",
+                  "narcolepsy", "rheumatoid","mood", 
+                  "constipation", "asthma", "delusion",
+                  "migraine", "psychosis", "mania", "muscle", 
+                  "panic", "hepatitis", "cancer",
+                  "cardiac", "nausea", "personality", 
+                  "fibromyalgia", "epilepsy", "paranoid",
+                  "obsessive", "thyroid", "compulsive", 
+                  "convulsion", "crohn", "thrombosis",
+                  "attack", "psoriasis", "myeloma", 
+                  "headache")
+
+quetiapine_sAE <- filter(quetia_num, quetia_num$term %in% indica.terms)
+
+
+
 ```
+
+
+```{r eval=TRUE, include=TRUE, results=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE }
+
+library(ggplotify)
+library(plotly)
+# p.1 <- fda_plot(quetia_ages)
+# ggplotly(p.1)
+
+p.2 <- plot_ly(data = quetiapine_sAE, 
+               x = quetiapine_sAE$term, 
+               y = quetiapine_sAE$count, 
+               #mode = "markers",
+               type = "scatter") #%>% 
+                  # layout(title = "Scatterplot",  autosize = F, width = 450, height = 450)
+
+
+```
+
+## Quetiapine
+
+`r p.2`
 
 [ShinyAPP openFDA](https://openfda.shinyapps.io/RR_D/).
