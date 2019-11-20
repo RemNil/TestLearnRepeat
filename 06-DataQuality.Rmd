@@ -47,9 +47,10 @@ indica.terms <- c("depression", "bipolar", "anxiety", "schizophrenia", "sleep", 
                   "attack", "psoriasis", "myeloma", 
                   "headache")
 
-quetiapine_sAE <- filter(quetia_num, quetia_num$term %in% indica.terms)
+quetiapine_sAE <- filter(quetia_num, quetia_num$term %in% indica.terms) %>% arrange(desc(count))
+  
 
-
+sapply(quetiapine_sAE, class)
 
 ```
 
@@ -62,11 +63,17 @@ library(plotly)
 # ggplotly(p.1)
 
 p.2 <- plot_ly(data = quetiapine_sAE, 
-               x = quetiapine_sAE$term, 
-               y = quetiapine_sAE$count, 
+               x = ~term, 
+               y = ~count, 
                #mode = "markers",
-               type = "scatter") #%>% 
-                  # layout(title = "Scatterplot",  autosize = F, width = 450, height = 450)
+               type = "bar") %>%
+layout(
+     title = "Advers drug events reported to FDA for quetiapine",
+     xaxis = list(title = "",
+     categoryorder = "count",
+     categoryarray = ~count),
+     yaxis = list(title = "Events reported")
+)
 
 
 ```

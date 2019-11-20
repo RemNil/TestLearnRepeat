@@ -147,7 +147,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
 <li class="chapter" data-level="2" data-path="translation.html"><a href="translation.html"><i class="fa fa-check"></i><b>2</b> Translation</a></li>
-<li class="chapter" data-level="3" data-path="justification.html"><a href="justification.html"><i class="fa fa-check"></i><b>3</b> Justification</a></li>
+<li class="chapter" data-level="3" data-path="justification.html"><a href="justification.html"><i class="fa fa-check"></i><b>3</b> Justification</a><ul>
+<li class="chapter" data-level="3.1" data-path="justification.html"><a href="justification.html#apllications"><i class="fa fa-check"></i><b>3.1</b> Apllications</a></li>
+</ul></li>
 <li class="chapter" data-level="4" data-path="multi-criteria-decision-analysis.html"><a href="multi-criteria-decision-analysis.html"><i class="fa fa-check"></i><b>4</b> Multi-Criteria Decision Analysis</a></li>
 <li class="chapter" data-level="5" data-path="learning.html"><a href="learning.html"><i class="fa fa-check"></i><b>5</b> Learning</a><ul>
 <li class="chapter" data-level="5.1" data-path="learning.html"><a href="learning.html#why-learn-at-all"><i class="fa fa-check"></i><b>5.1</b> Why learn at all?</a><ul>
@@ -160,6 +162,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.1" data-path="data-quality.html"><a href="data-quality.html#openfda"><i class="fa fa-check"></i><b>6.1</b> OpenFDA</a><ul>
 <li class="chapter" data-level="6.1.1" data-path="data-quality.html"><a href="data-quality.html#data-cleaning"><i class="fa fa-check"></i><b>6.1.1</b> Data cleaning</a></li>
 </ul></li>
+<li class="chapter" data-level="6.2" data-path="data-quality.html"><a href="data-quality.html#quetiapine"><i class="fa fa-check"></i><b>6.2</b> Quetiapine</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -612,38 +615,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">library</span>(dplyr)</a>
 <a class="sourceLine" id="cb4-2" title="2"><span class="kw">library</span>(plotly)</a>
 <a class="sourceLine" id="cb4-3" title="3"></a>
-<a class="sourceLine" id="cb4-4" title="4">quetiapine_sAE&lt;-<span class="st"> </span><span class="kw">filter</span>(quetia_num, term <span class="op">==</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;depression&quot;</span>, <span class="st">&quot;bipolar&quot;</span>, <span class="st">&quot;anxiety&quot;</span>, </a>
-<a class="sourceLine" id="cb4-5" title="5">                                            <span class="st">&quot;schizophrenia&quot;</span>, <span class="st">&quot;sleep&quot;</span>, <span class="st">&quot;insomnia&quot;</span>,</a>
-<a class="sourceLine" id="cb4-6" title="6">                                            <span class="st">&quot;pain&quot;</span>, <span class="st">&quot;hypertension&quot;</span>, <span class="st">&quot;psychotic&quot;</span>, </a>
-<a class="sourceLine" id="cb4-7" title="7">                                            <span class="st">&quot;parkinson&quot;</span>, <span class="st">&quot;diabetes&quot;</span>,<span class="st">&quot;dementia&quot;</span>,</a>
-<a class="sourceLine" id="cb4-8" title="8">                                            <span class="st">&quot;schizoaffective&quot;</span>, <span class="st">&quot;gastrooesophageal&quot;</span>, </a>
-<a class="sourceLine" id="cb4-9" title="9">                                            <span class="st">&quot;affective&quot;</span>, <span class="st">&quot;hallucination&quot;</span>,</a>
-<a class="sourceLine" id="cb4-10" title="10">                                            <span class="st">&quot;arthritis&quot;</span>, <span class="st">&quot;agitation&quot;</span>, <span class="st">&quot;sclerosis&quot;</span>, </a>
-<a class="sourceLine" id="cb4-11" title="11">                                            <span class="st">&quot;hyperactivity&quot;</span>, <span class="st">&quot;infection&quot;</span>,   </a>
-<a class="sourceLine" id="cb4-12" title="12">                                            <span class="st">&quot;attention&quot;</span>, <span class="st">&quot;stress&quot;</span>, <span class="st">&quot;traumatic&quot;</span>, </a>
-<a class="sourceLine" id="cb4-13" title="13">                                            <span class="st">&quot;hypothyroidism&quot;</span>, <span class="st">&quot;pulmonary&quot;</span>,</a>
-<a class="sourceLine" id="cb4-14" title="14">                                            <span class="st">&quot;narcolepsy&quot;</span>, <span class="st">&quot;rheumatoid&quot;</span>,<span class="st">&quot;mood&quot;</span>, </a>
-<a class="sourceLine" id="cb4-15" title="15">                                            <span class="st">&quot;constipation&quot;</span>, <span class="st">&quot;asthma&quot;</span>, <span class="st">&quot;delusion&quot;</span>,</a>
-<a class="sourceLine" id="cb4-16" title="16">                                            <span class="st">&quot;migraine&quot;</span>, <span class="st">&quot;psychosis&quot;</span>, <span class="st">&quot;mania&quot;</span>, <span class="st">&quot;muscle&quot;</span>, </a>
-<a class="sourceLine" id="cb4-17" title="17">                                            <span class="st">&quot;panic&quot;</span>, <span class="st">&quot;hepatitis&quot;</span>, <span class="st">&quot;cancer&quot;</span>,</a>
-<a class="sourceLine" id="cb4-18" title="18">                                            <span class="st">&quot;cardiac&quot;</span>, <span class="st">&quot;nausea&quot;</span>, <span class="st">&quot;personality&quot;</span>, </a>
-<a class="sourceLine" id="cb4-19" title="19">                                            <span class="st">&quot;fibromyalgia&quot;</span>, <span class="st">&quot;epilepsy&quot;</span>, <span class="st">&quot;paranoid&quot;</span>,</a>
-<a class="sourceLine" id="cb4-20" title="20">                                            <span class="st">&quot;obsessive&quot;</span>, <span class="st">&quot;thyroid&quot;</span>, <span class="st">&quot;compulsive&quot;</span>, </a>
-<a class="sourceLine" id="cb4-21" title="21">                                            <span class="st">&quot;convulsion&quot;</span>, <span class="st">&quot;crohn&quot;</span>, <span class="st">&quot;thrombosis&quot;</span>,</a>
-<a class="sourceLine" id="cb4-22" title="22">                                            <span class="st">&quot;attack&quot;</span>, <span class="st">&quot;psoriasis&quot;</span>, <span class="st">&quot;myeloma&quot;</span>, </a>
-<a class="sourceLine" id="cb4-23" title="23">                                            <span class="st">&quot;headache&quot;</span>))</a>
+<a class="sourceLine" id="cb4-4" title="4">                           </a>
+<a class="sourceLine" id="cb4-5" title="5">indica.terms &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;depression&quot;</span>, <span class="st">&quot;bipolar&quot;</span>, <span class="st">&quot;anxiety&quot;</span>, <span class="st">&quot;schizophrenia&quot;</span>, <span class="st">&quot;sleep&quot;</span>, <span class="st">&quot;insomnia&quot;</span>,</a>
+<a class="sourceLine" id="cb4-6" title="6">                  <span class="st">&quot;pain&quot;</span>, <span class="st">&quot;hypertension&quot;</span>, <span class="st">&quot;psychotic&quot;</span>, </a>
+<a class="sourceLine" id="cb4-7" title="7">                  <span class="st">&quot;parkinson&quot;</span>, <span class="st">&quot;diabetes&quot;</span>,<span class="st">&quot;dementia&quot;</span>,</a>
+<a class="sourceLine" id="cb4-8" title="8">                  <span class="st">&quot;schizoaffective&quot;</span>, <span class="st">&quot;gastrooesophageal&quot;</span>, </a>
+<a class="sourceLine" id="cb4-9" title="9">                  <span class="st">&quot;affective&quot;</span>, <span class="st">&quot;hallucination&quot;</span>,</a>
+<a class="sourceLine" id="cb4-10" title="10">                  <span class="st">&quot;arthritis&quot;</span>, <span class="st">&quot;agitation&quot;</span>, <span class="st">&quot;sclerosis&quot;</span>, </a>
+<a class="sourceLine" id="cb4-11" title="11">                  <span class="st">&quot;hyperactivity&quot;</span>, <span class="st">&quot;infection&quot;</span>, </a>
+<a class="sourceLine" id="cb4-12" title="12">                  <span class="st">&quot;attention&quot;</span>, <span class="st">&quot;stress&quot;</span>, <span class="st">&quot;traumatic&quot;</span>, </a>
+<a class="sourceLine" id="cb4-13" title="13">                  <span class="st">&quot;hypothyroidism&quot;</span>, <span class="st">&quot;pulmonary&quot;</span>,</a>
+<a class="sourceLine" id="cb4-14" title="14">                  <span class="st">&quot;narcolepsy&quot;</span>, <span class="st">&quot;rheumatoid&quot;</span>,<span class="st">&quot;mood&quot;</span>, </a>
+<a class="sourceLine" id="cb4-15" title="15">                  <span class="st">&quot;constipation&quot;</span>, <span class="st">&quot;asthma&quot;</span>, <span class="st">&quot;delusion&quot;</span>,</a>
+<a class="sourceLine" id="cb4-16" title="16">                  <span class="st">&quot;migraine&quot;</span>, <span class="st">&quot;psychosis&quot;</span>, <span class="st">&quot;mania&quot;</span>, <span class="st">&quot;muscle&quot;</span>, </a>
+<a class="sourceLine" id="cb4-17" title="17">                  <span class="st">&quot;panic&quot;</span>, <span class="st">&quot;hepatitis&quot;</span>, <span class="st">&quot;cancer&quot;</span>,</a>
+<a class="sourceLine" id="cb4-18" title="18">                  <span class="st">&quot;cardiac&quot;</span>, <span class="st">&quot;nausea&quot;</span>, <span class="st">&quot;personality&quot;</span>, </a>
+<a class="sourceLine" id="cb4-19" title="19">                  <span class="st">&quot;fibromyalgia&quot;</span>, <span class="st">&quot;epilepsy&quot;</span>, <span class="st">&quot;paranoid&quot;</span>,</a>
+<a class="sourceLine" id="cb4-20" title="20">                  <span class="st">&quot;obsessive&quot;</span>, <span class="st">&quot;thyroid&quot;</span>, <span class="st">&quot;compulsive&quot;</span>, </a>
+<a class="sourceLine" id="cb4-21" title="21">                  <span class="st">&quot;convulsion&quot;</span>, <span class="st">&quot;crohn&quot;</span>, <span class="st">&quot;thrombosis&quot;</span>,</a>
+<a class="sourceLine" id="cb4-22" title="22">                  <span class="st">&quot;attack&quot;</span>, <span class="st">&quot;psoriasis&quot;</span>, <span class="st">&quot;myeloma&quot;</span>, </a>
+<a class="sourceLine" id="cb4-23" title="23">                  <span class="st">&quot;headache&quot;</span>)</a>
 <a class="sourceLine" id="cb4-24" title="24"></a>
-<a class="sourceLine" id="cb4-25" title="25"><span class="kw">plot_ly</span>(<span class="dt">data =</span> quetiapine_sAE, </a>
-<a class="sourceLine" id="cb4-26" title="26">        <span class="dt">x =</span> quetiapine_sAE<span class="op">$</span>term, </a>
-<a class="sourceLine" id="cb4-27" title="27">        <span class="dt">y =</span> quetiapine_sAE<span class="op">$</span>count, </a>
-<a class="sourceLine" id="cb4-28" title="28">        <span class="dt">type =</span> <span class="st">&quot;scatter&quot;</span>, <span class="dt">mode =</span> <span class="st">&quot;markers&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb4-29" title="29"><span class="st">  </span><span class="kw">layout</span>(<span class="dt">title =</span> <span class="st">&quot;Scatterplot&quot;</span>, </a>
-<a class="sourceLine" id="cb4-30" title="30">         <span class="dt">autosize =</span> F, <span class="dt">width =</span> <span class="dv">300</span>, <span class="dt">height =</span> <span class="dv">300</span>)</a></code></pre></div>
-<div id="htmlwidget-a398ad0a1c0bdfb74657" style="width:672px;height:480px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-a398ad0a1c0bdfb74657">{"x":{"visdat":{"254419153a03":["function () ","plotlyVisDat"]},"cur_data":"254419153a03","attrs":{"254419153a03":{"x":[],"y":[],"mode":"markers","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"width":300,"height":300,"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Scatterplot","autosize":false,"xaxis":{"domain":[0,1],"automargin":true,"title":[]},"yaxis":{"domain":[0,1],"automargin":true,"title":[]},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"mode":"markers","type":"scatter","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<a class="sourceLine" id="cb4-25" title="25">quetiapine_sAE &lt;-<span class="st"> </span><span class="kw">filter</span>(quetia_num, quetia_num<span class="op">$</span>term <span class="op">%in%</span><span class="st"> </span>indica.terms) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(count))</a>
+<a class="sourceLine" id="cb4-26" title="26">  </a>
+<a class="sourceLine" id="cb4-27" title="27"></a>
+<a class="sourceLine" id="cb4-28" title="28"><span class="kw">sapply</span>(quetiapine_sAE, class)</a></code></pre></div>
+<pre><code>##        term       count 
+## &quot;character&quot;   &quot;integer&quot;</code></pre>
+</div>
+</div>
+<div id="quetiapine" class="section level2">
+<h2><span class="header-section-number">6.2</span> Quetiapine</h2>
+<div id="htmlwidget-d320446344354e366376" style="width:100%;height:400px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d320446344354e366376">{"x":{"visdat":{"3d604d0b4d7e":["function () ","plotlyVisDat"]},"cur_data":"3d604d0b4d7e","attrs":{"3d604d0b4d7e":{"x":{},"y":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Advers drug events reported to FDA for quetiapine","xaxis":{"domain":[0,1],"automargin":true,"title":"","categoryorder":"count","categoryarray":[16416,16393,8068,7140,6399,5202,4795,3798,3229,2536,2131,1885,1780,1744,1671,1658,1373,1328,1326,1304,1293,1265,1240,1119,1095,1078,992,972,954,926,896,859,852,846,834,800,799,798,794,761,705,695,666,635,634,604,585,576,573,572,569,558,554,520,518],"type":"category"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Events reported"},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"x":["depression","bipolar","anxiety","schizophrenia","sleep","insomnia","pain","hypertension","psychotic","parkinson","diabetes","dementia","schizoaffective","gastrooesophageal","affective","hallucination","arthritis","agitation","sclerosis","hyperactivity","infection","attention","stress","traumatic","hypothyroidism","pulmonary","narcolepsy","rheumatoid","mood","constipation","asthma","delusion","migraine","psychosis","mania","muscle","panic","hepatitis","cancer","cardiac","nausea","personality","fibromyalgia","epilepsy","paranoid","obsessive","thyroid","compulsive","convulsion","crohn","thrombosis","attack","psoriasis","myeloma","headache"],"y":[16416,16393,8068,7140,6399,5202,4795,3798,3229,2536,2131,1885,1780,1744,1671,1658,1373,1328,1326,1304,1293,1265,1240,1119,1095,1078,992,972,954,926,896,859,852,846,834,800,799,798,794,761,705,695,666,635,634,604,585,576,573,572,569,558,554,520,518],"type":"bar","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 <p><a href="https://openfda.shinyapps.io/RR_D/">ShinyAPP openFDA</a>.</p>
 
-</div>
 </div>
 </div>
 <div class = rmdreview>
