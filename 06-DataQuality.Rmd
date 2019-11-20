@@ -3,8 +3,6 @@
 ## OpenFDA
 According to the [published data](https://open.fda.gov/) from the U.S. Food and Drug Administration (FDA), there are about 10.5 million drug adverse event reports [(Nov. 2019)](https://open.fda.gov/about/statistics/) reported to the [FDA](https://www.fda.gov/).
 
-### Data cleaning
-If we run a search on the official release of the [FDA data](https://open.fda.gov/) using the [openFDA R package](https://github.com/rOpenHealth/openfda), we obtain a lot of nonsense data. For example, for [quetiapine](https://en.wikipedia.org/wiki/Quetiapine), we see that there are frequencies returned for terms such as "disorder", "unknown", "indication", "for", "product", etc. However, what we would want is simply a list with medical indications and the frequency of reported [sAE](https://en.wikipedia.org/wiki/Serious_adverse_event).
 
 ```{r eval=TRUE, include=TRUE, results=TRUE, echo=TRUE, warning=FALSE, error=FALSE, message=FALSE }
 library(openfda)
@@ -13,8 +11,6 @@ Numb_query = fda_query("/drug/event.json") %>%
              fda_count("patient.drug.drugindication");
 
 quetia_num = Numb_query %>% fda_filter("patient.drug.openfda.generic_name", "quetiapine") %>% fda_exec()
-
-knitr::kable(quetia_num)
 ```
 
 It seems there is a problem in that the text data is parsed into n-grams without due diligence with regard to the meaning of the operation. For example, "diabetes" and "mellitus" are listed as distinct terms (althoug with different frequencies).
@@ -68,7 +64,7 @@ p.2 <- plot_ly(data = quetiapine_sAE,
                #mode = "markers",
                type = "bar") %>%
 layout(
-     title = "Advers drug events reported to FDA for quetiapine",
+     title = "Adverse drug events reported to FDA for quetiapine",
      xaxis = list(title = "",
      categoryorder = "count",
      categoryarray = ~count),
@@ -79,7 +75,13 @@ layout(
 ```
 
 ## Quetiapine
+FDA Adverse Event Reporting System ([FAERS](https://open.fda.gov/data/faers/)). [Here](https://open.fda.gov/apis/drug/event/) is quick explanation:
+`r p.2` To better understand what this data means, we need to really dig into the openFDA API.
 
-`r p.2`
+### Data cleaning
+If we run a search on the official release of the [FDA data](https://open.fda.gov/) using the [openFDA R package](https://github.com/rOpenHealth/openfda), we obtain a lot of nonsense data. For example, for [quetiapine](https://en.wikipedia.org/wiki/Quetiapine), we see that there are frequencies returned for terms such as "disorder", "unknown", "indication", "for", "product", etc. However, what we would want is simply a list with medical indications and the frequency of reported [sAE](https://en.wikipedia.org/wiki/Serious_adverse_event).
 
+`r knitr::kable(quetia_num)`
+
+### Further readings
 [ShinyAPP openFDA](https://openfda.shinyapps.io/RR_D/).

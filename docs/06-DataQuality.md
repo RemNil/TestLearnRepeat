@@ -3,8 +3,6 @@
 ## OpenFDA
 According to the [published data](https://open.fda.gov/) from the U.S. Food and Drug Administration (FDA), there are about 10.5 million drug adverse event reports [(Nov. 2019)](https://open.fda.gov/about/statistics/) reported to the [FDA](https://www.fda.gov/).
 
-### Data cleaning
-If we run a search on the official release of the [FDA data](https://open.fda.gov/) using the [openFDA R package](https://github.com/rOpenHealth/openfda), we obtain a lot of nonsense data. For example, for [quetiapine](https://en.wikipedia.org/wiki/Quetiapine), we see that there are frequencies returned for terms such as "disorder", "unknown", "indication", "for", "product", etc. However, what we would want is simply a list with medical indications and the frequency of reported [sAE](https://en.wikipedia.org/wiki/Serious_adverse_event).
 
 
 ```r
@@ -20,9 +18,57 @@ quetia_num = Numb_query %>% fda_filter("patient.drug.openfda.generic_name", "que
 ## Fetching: https://api.fda.gov/drug/event.json?search=patient.drug.openfda.generic_name:quetiapine&api_key=ex0HLx7faxU5MnmTGJ9GqIRiS2qf0oP6KY8KzF3F&count=patient.drug.drugindication
 ```
 
+It seems there is a problem in that the text data is parsed into n-grams without due diligence with regard to the meaning of the operation. For example, "diabetes" and "mellitus" are listed as distinct terms (althoug with different frequencies).
+
+
+
+
 ```r
-knitr::kable(quetia_num)
+library(dplyr)
+library(plotly)
+
+                           
+indica.terms <- c("depression", "bipolar", "anxiety", "schizophrenia", "sleep", "insomnia",
+                  "pain", "hypertension", "psychotic", 
+                  "parkinson", "diabetes","dementia",
+                  "schizoaffective", "gastrooesophageal", 
+                  "affective", "hallucination",
+                  "arthritis", "agitation", "sclerosis", 
+                  "hyperactivity", "infection",	
+                  "attention", "stress", "traumatic", 
+                  "hypothyroidism", "pulmonary",
+                  "narcolepsy", "rheumatoid","mood", 
+                  "constipation", "asthma", "delusion",
+                  "migraine", "psychosis", "mania", "muscle", 
+                  "panic", "hepatitis", "cancer",
+                  "cardiac", "nausea", "personality", 
+                  "fibromyalgia", "epilepsy", "paranoid",
+                  "obsessive", "thyroid", "compulsive", 
+                  "convulsion", "crohn", "thrombosis",
+                  "attack", "psoriasis", "myeloma", 
+                  "headache")
+
+quetiapine_sAE <- filter(quetia_num, quetia_num$term %in% indica.terms) %>% arrange(desc(count))
+  
+
+sapply(quetiapine_sAE, class)
 ```
+
+```
+##        term       count 
+## "character"   "integer"
+```
+
+
+
+
+## Quetiapine
+FDA Adverse Event Reporting System ([FAERS](https://open.fda.gov/data/faers/)). [Here](https://open.fda.gov/apis/drug/event/) is quick explanation:
+<!--html_preserve--><div id="htmlwidget-5317b9016b41feae4bb1" style="width:100%;height:400px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5317b9016b41feae4bb1">{"x":{"visdat":{"313448171578":["function () ","plotlyVisDat"]},"cur_data":"313448171578","attrs":{"313448171578":{"x":{},"y":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Adverse drug events reported to FDA for quetiapine","xaxis":{"domain":[0,1],"automargin":true,"title":"","categoryorder":"count","categoryarray":[16416,16393,8068,7140,6399,5202,4795,3798,3229,2536,2131,1885,1780,1744,1671,1658,1373,1328,1326,1304,1293,1265,1240,1119,1095,1078,992,972,954,926,896,859,852,846,834,800,799,798,794,761,705,695,666,635,634,604,585,576,573,572,569,558,554,520,518],"type":"category"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Events reported"},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"x":["depression","bipolar","anxiety","schizophrenia","sleep","insomnia","pain","hypertension","psychotic","parkinson","diabetes","dementia","schizoaffective","gastrooesophageal","affective","hallucination","arthritis","agitation","sclerosis","hyperactivity","infection","attention","stress","traumatic","hypothyroidism","pulmonary","narcolepsy","rheumatoid","mood","constipation","asthma","delusion","migraine","psychosis","mania","muscle","panic","hepatitis","cancer","cardiac","nausea","personality","fibromyalgia","epilepsy","paranoid","obsessive","thyroid","compulsive","convulsion","crohn","thrombosis","attack","psoriasis","myeloma","headache"],"y":[16416,16393,8068,7140,6399,5202,4795,3798,3229,2536,2131,1885,1780,1744,1671,1658,1373,1328,1326,1304,1293,1265,1240,1119,1095,1078,992,972,954,926,896,859,852,846,834,800,799,798,794,761,705,695,666,635,634,604,585,576,573,572,569,558,554,520,518],"type":"bar","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script><!--/html_preserve--> To better understand what this data means, we need to really dig into the openFDA API.
+
+### Data cleaning
+If we run a search on the official release of the [FDA data](https://open.fda.gov/) using the [openFDA R package](https://github.com/rOpenHealth/openfda), we obtain a lot of nonsense data. For example, for [quetiapine](https://en.wikipedia.org/wiki/Quetiapine), we see that there are frequencies returned for terms such as "disorder", "unknown", "indication", "for", "product", etc. However, what we would want is simply a list with medical indications and the frequency of reported [sAE](https://en.wikipedia.org/wiki/Serious_adverse_event).
 
 
 
@@ -129,53 +175,7 @@ contraception          523
 myeloma                520
 headache               518
 
-It seems there is a problem in that the text data is parsed into n-grams without due diligence with regard to the meaning of the operation. For example, "diabetes" and "mellitus" are listed as distinct terms (althoug with different frequencies).
 
 
-
-
-```r
-library(dplyr)
-library(plotly)
-
-                           
-indica.terms <- c("depression", "bipolar", "anxiety", "schizophrenia", "sleep", "insomnia",
-                  "pain", "hypertension", "psychotic", 
-                  "parkinson", "diabetes","dementia",
-                  "schizoaffective", "gastrooesophageal", 
-                  "affective", "hallucination",
-                  "arthritis", "agitation", "sclerosis", 
-                  "hyperactivity", "infection",	
-                  "attention", "stress", "traumatic", 
-                  "hypothyroidism", "pulmonary",
-                  "narcolepsy", "rheumatoid","mood", 
-                  "constipation", "asthma", "delusion",
-                  "migraine", "psychosis", "mania", "muscle", 
-                  "panic", "hepatitis", "cancer",
-                  "cardiac", "nausea", "personality", 
-                  "fibromyalgia", "epilepsy", "paranoid",
-                  "obsessive", "thyroid", "compulsive", 
-                  "convulsion", "crohn", "thrombosis",
-                  "attack", "psoriasis", "myeloma", 
-                  "headache")
-
-quetiapine_sAE <- filter(quetia_num, quetia_num$term %in% indica.terms) %>% arrange(desc(count))
-  
-
-sapply(quetiapine_sAE, class)
-```
-
-```
-##        term       count 
-## "character"   "integer"
-```
-
-
-
-
-## Quetiapine
-
-<!--html_preserve--><div id="htmlwidget-d320446344354e366376" style="width:100%;height:400px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d320446344354e366376">{"x":{"visdat":{"3d604d0b4d7e":["function () ","plotlyVisDat"]},"cur_data":"3d604d0b4d7e","attrs":{"3d604d0b4d7e":{"x":{},"y":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Advers drug events reported to FDA for quetiapine","xaxis":{"domain":[0,1],"automargin":true,"title":"","categoryorder":"count","categoryarray":[16416,16393,8068,7140,6399,5202,4795,3798,3229,2536,2131,1885,1780,1744,1671,1658,1373,1328,1326,1304,1293,1265,1240,1119,1095,1078,992,972,954,926,896,859,852,846,834,800,799,798,794,761,705,695,666,635,634,604,585,576,573,572,569,558,554,520,518],"type":"category"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Events reported"},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"x":["depression","bipolar","anxiety","schizophrenia","sleep","insomnia","pain","hypertension","psychotic","parkinson","diabetes","dementia","schizoaffective","gastrooesophageal","affective","hallucination","arthritis","agitation","sclerosis","hyperactivity","infection","attention","stress","traumatic","hypothyroidism","pulmonary","narcolepsy","rheumatoid","mood","constipation","asthma","delusion","migraine","psychosis","mania","muscle","panic","hepatitis","cancer","cardiac","nausea","personality","fibromyalgia","epilepsy","paranoid","obsessive","thyroid","compulsive","convulsion","crohn","thrombosis","attack","psoriasis","myeloma","headache"],"y":[16416,16393,8068,7140,6399,5202,4795,3798,3229,2536,2131,1885,1780,1744,1671,1658,1373,1328,1326,1304,1293,1265,1240,1119,1095,1078,992,972,954,926,896,859,852,846,834,800,799,798,794,761,705,695,666,635,634,604,585,576,573,572,569,558,554,520,518],"type":"bar","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
-
+### Further readings
 [ShinyAPP openFDA](https://openfda.shinyapps.io/RR_D/).
