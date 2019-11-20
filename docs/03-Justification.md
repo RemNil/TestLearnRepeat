@@ -1,7 +1,7 @@
 # Justification
-In later stages of clinical trialS, there is a well-established concept that can be invoked to justify  research burdens to be accepted by human participants: "clinical equipoise" [@Freedman1987Equipoise]. In confirmatory research design of a randomized control trial...
+In randomized controlled trials, there is a well-established concept that can be invoked to justify  research burdens to be accepted by human participants: "clinical equipoise" [@Freedman1987Equipoise].
 
-In early phases, however, information is in general sparse and uncertainty about key dimensions is abundant. As such clinical equipoise needs to be established by earlier cinical development and cannot at the same time function as the justifcation for this very research.
+In early phases, however, information is in general sparse and uncertainty about key dimensions is abundant. Since clinical equipoise is not simply the absence of evidence, the belief in the equivalence of interventions needs to be established by positive evidence. Early cinical development serves as bases to provide this kind of evidential support for clinical equipoise in later RCTs, but cannot at the same time function as the justifcation for early cinical development itself ([circularity](https://en.wikipedia.org/wiki/Circular_reasoning)).
 
 
 ![Black Panther, 2018, Marvel Studios](https://media.giphy.com/media/1SwSneBv946CZVYaNm/giphy.gif){width=350px}
