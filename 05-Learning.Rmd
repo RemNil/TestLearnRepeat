@@ -1,6 +1,5 @@
 # Learning
 
-According to the [published data](https://open.fda.gov/) from the U.S. Food and Drug Administration (FDA), there are [ShinyAPP openFDA](https://openfda.shinyapps.io/RR_D/).
 
 ## Why learn at all?
 With increasing experience on CTAs or INDs, there may be associations between "success" metrics and certain formal characteristics of application materials. According to [BfArM](https://www.bfarm.de/EN/BfArM/_node.html) there are 3,647 applicatioin for 2014-2018,
@@ -16,6 +15,7 @@ This kind of data is from [grey literature](https://en.wikipedia.org/wiki/Grey_l
 [NCATS](https://pubs.acs.org/doi/pdf/10.1021/acsptsci.9b00056)
 
 ## What to learn first?
+“Information gain per capita of accepted research burdens” is an useful concept. 
 [Intriguing](http://serayamaouche.net/code/R/Rcode.html)
 
 ## How to learn best?
@@ -26,6 +26,7 @@ library("openfda")
 
 # https://github.com/rOpenHealth/openfda
 patient_ages = fda_query("/drug/event.json") %>%
+               fda_api_key("ex0HLx7faxU5MnmTGJ9GqIRiS2qf0oP6KY8KzF3F") %>%
                fda_count("patient.patientonsetage") %>%
                fda_exec()
 
@@ -48,9 +49,6 @@ quetia_ages = fda_query("/drug/event.json") %>%
                fda_count("patient.patientonsetage") %>%
                fda_exec()
 
-fda_plot(quetia_ages)
-
-
 
 Numb_query = fda_query("/drug/event.json") %>%
             fda_api_key("ex0HLx7faxU5MnmTGJ9GqIRiS2qf0oP6KY8KzF3F") %>%
@@ -59,6 +57,26 @@ Numb_query = fda_query("/drug/event.json") %>%
 
 quetia_num = Numb_query %>% fda_filter("patient.drug.openfda.generic_name", "quetiapine") %>% fda_exec()
 
+```
+
+
+```{r eval=TRUE, include=TRUE, results=TRUE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE }
+
+library(ggplotify)
+library(plotly)
+p1 <- fda_plot(quetia_ages)
+ggplotly(p1)
+
+
+
 str(quetia_num)
-fda_plot(quetia_num)
+#fda_plot(quetia_num)
+
+
+plot_ly(data = quetia_num, 
+        x = quetia_num$term, 
+        y = quetia_num$count, 
+        type = "scatter", mode = "markers") %>%
+  layout(title = "Scatterplot", 
+         autosize = F, width = 300, height = 300)
 ```

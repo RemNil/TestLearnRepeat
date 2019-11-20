@@ -1,0 +1,57 @@
+# Data quality
+
+## OpenFDA
+According to the [published data](https://open.fda.gov/) from the U.S. Food and Drug Administration (FDA), there are about 10.5 million drug adverse event reports [(Nov. 2019)](https://open.fda.gov/about/statistics/) reported to the [FDA](https://www.fda.gov/).
+
+### Data cleaning
+If we run a search on the official release of the [FDA data](https://open.fda.gov/) using the [openFDA R package](https://github.com/rOpenHealth/openfda), we obtain a lot of nonsense data. For example, for [quetiapine](https://en.wikipedia.org/wiki/Quetiapine), we see that there are frequencies returned for terms such as "disorder", "unknown", "indication", "for", "product", etc. However, what we would want is simply a list with medical indications and the frequency of reported [sAE](https://en.wikipedia.org/wiki/Serious_adverse_event).
+
+```{r eval=TRUE, include=TRUE, results=TRUE, echo=TRUE, warning=FALSE, error=FALSE, message=FALSE }
+library(openfda)
+Numb_query = fda_query("/drug/event.json") %>%
+             fda_api_key("ex0HLx7faxU5MnmTGJ9GqIRiS2qf0oP6KY8KzF3F") %>%
+             fda_count("patient.drug.drugindication");
+
+quetia_num = Numb_query %>% fda_filter("patient.drug.openfda.generic_name", "quetiapine") %>% fda_exec()
+
+knitr::kable(quetia_num)
+```
+
+It seems there is a problem in that the text data is parsed into n-grams without due diligence with regard to the meaning of the operation. For example, "diabetes" and "mellitus" are listed as distinct terms (althoug with different frequencies).
+
+
+
+```{r eval=TRUE, include=TRUE, results=TRUE, echo=TRUE, warning=FALSE, error=FALSE, message=FALSE }
+library(dplyr)
+library(plotly)
+
+quetiapine_sAE<- filter(quetia_num, term == c("depression", "bipolar", "anxiety", 
+                                            "schizophrenia", "sleep", "insomnia",
+                                            "pain", "hypertension", "psychotic", 
+                                            "parkinson", "diabetes","dementia",
+                                            "schizoaffective", "gastrooesophageal", 
+                                            "affective", "hallucination",
+                                            "arthritis", "agitation", "sclerosis", 
+                                            "hyperactivity", "infection",	
+                                            "attention", "stress", "traumatic", 
+                                            "hypothyroidism", "pulmonary",
+                                            "narcolepsy", "rheumatoid","mood", 
+                                            "constipation", "asthma", "delusion",
+                                            "migraine", "psychosis", "mania", "muscle", 
+                                            "panic", "hepatitis", "cancer",
+                                            "cardiac", "nausea", "personality", 
+                                            "fibromyalgia", "epilepsy", "paranoid",
+                                            "obsessive", "thyroid", "compulsive", 
+                                            "convulsion", "crohn", "thrombosis",
+                                            "attack", "psoriasis", "myeloma", 
+                                            "headache"))
+
+plot_ly(data = quetiapine_sAE, 
+        x = quetiapine_sAE$term, 
+        y = quetiapine_sAE$count, 
+        type = "scatter", mode = "markers") %>%
+  layout(title = "Scatterplot", 
+         autosize = F, width = 300, height = 300)
+```
+
+[ShinyAPP openFDA](https://openfda.shinyapps.io/RR_D/).
