@@ -1,8 +1,17 @@
-# Data quality
+# Data quality in open (regulatory) science
+
+## EU Open Data Portal
+European public assessment reports [(EPAR)](http://data.europa.eu/euodp/en/data/dataset/epar-human-medicines) for human medicines
 
 ## OpenFDA
 According to the [published data](https://open.fda.gov/) from the U.S. Food and Drug Administration (FDA), there are about 10.5 million drug adverse event reports [(Nov. 2019)](https://open.fda.gov/about/statistics/) reported to the [FDA](https://www.fda.gov/).
 
+## Pharmacovigiliance
+To analyse pharmacovigilance (adverse drug event) data, there are several national and international databases for Open Science. [EMA EudraVigilance](http://www.adrreports.eu/de/index.html) is not open accessible due to data protection concerns but academic institutions can apply on [request](https://www.ema.europa.eu/en/human-regulatory/research-development/pharmacovigilance/eudravigilance/access-eudravigilance-data). [WHO VigiBase] is the largest database with over 20 million anonymized reports of suspected adverse effects submitted since 1968. It is not publicly accessible.
+
+(http://www.adrreports.eu/de/search_subst.html#)[Quetiapine EudraVigilance)
+
+[OpenVigil 2.1-MedDRA](http://openvigil.sourceforge.net/) contains th U.S. american FDA Adverse Event Reporting System (AERS, mostly domestic data) and BfArM data from 2005 to 9/2015.
 
 ```{r eval=TRUE, include=TRUE, results=TRUE, echo=TRUE, warning=FALSE, error=FALSE, message=FALSE }
 library(openfda)
@@ -13,7 +22,7 @@ Numb_query = fda_query("/drug/event.json") %>%
 quetia_num = Numb_query %>% fda_filter("patient.drug.openfda.generic_name", "quetiapine") %>% fda_exec()
 ```
 
-It seems there is a problem in that the text data is parsed into n-grams without due diligence with regard to the meaning of the operation. For example, "diabetes" and "mellitus" are listed as distinct terms (althoug with different frequencies).
+It seems there is a problem in that the text data is parsed into n-grams without due diligence with regard to the meaning of the operation. For example, "diabetes" and "mellitus" are listed as distinct terms (although with different frequencies).
 
 
 
