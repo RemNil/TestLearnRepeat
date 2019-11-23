@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Translational Research as a learning system</title>
   <meta name="description" content="Test. Learn. Repeat." />
-  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.15 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Translational Research as a learning system" />
   <meta property="og:type" content="book" />
@@ -40,6 +40,7 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -47,7 +48,9 @@
 
 
 
-<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+
+
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
 <script src="libs/plotly-binding-4.9.1/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
@@ -148,10 +151,9 @@
 <p>To understand the complexity of clinical development gives rise to a <a href="https://www.youtube.com/watch?v=Yzdqy7WR3Fg">garden of forking paths</a>.</p>
 <div class="figure">
 <img src="https://mucollective.northwestern.edu/wp-content/uploads/2019/01/gfp-image.png" alt="Garden of a forking path: Please always refer directly to the original source (Kale, Kay, and Hullman 2019)." />
-<p class="caption">Garden of a forking path: Please always refer directly to the <a href="https://mucollective.northwestern.edu/files/2019-AnalysisPathsResearchSynthesis-CHI.pdf">original source</a> <span class="citation">(Kale, Kay, and Hullman <a href="#ref-alex2019decision">2019</a>)</span>.</p>
+<p class="caption">Garden of a forking path: Please always refer directly to the <a href="https://mucollective.northwestern.edu/files/2019-AnalysisPathsResearchSynthesis-CHI.pdf">original source</a> <span class="citation">(Kale, Kay, and Hullman <a href="#ref-alex2019decision" role="doc-biblioref">2019</a>)</span>.</p>
 </div>
-<p>As a result, the conceptualization of the structure, <a href="https://www.youtube.com/watch?v=U_6ear-yORE">institutional</a> and economic mechanisms at play are challenging to fully grasp. On this page, I summarize some of my readings in an unsystematic and eclectic way. The aim is not necessarily to say something entirely new or original, but perhaps someone who finds the way to this place will also find a value in the information discussed.
-<a href="https://www.youtube.com/watch?v=KsYYhyc7qnw">preclinical pdiatric studies</a></p>
+<p>As a result, the conceptualization of the structure, <a href="https://www.youtube.com/watch?v=U_6ear-yORE">institutional</a> and economic mechanisms at play are challenging to fully grasp. On this page, I summarize some of my readings in an unsystematic and eclectic way. The aim is not necessarily to say something entirely new or original, but perhaps someone who finds the way to this place will also find a value in the information discussed.</p>
 <p><a href="http://www.openreviewtoolkit.org/">Open peer-review</a> is enabled using <a href="https://web.hypothes.is/">hypothes.is</a>. This facilitates sentence-by-sentence annotation from readers directly on this page.</p>
 
 </div>
@@ -175,24 +177,25 @@
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": true,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": true,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "twitter", "linkedin"]
+"all": ["facebook", "twitter", "linkedin"],
+"github": true
 },
 "fontsettings": {
 "theme": "white",

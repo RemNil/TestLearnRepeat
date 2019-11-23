@@ -7,6 +7,8 @@ Previous conceptual work developed a useful model of the structure of clinical d
 
 ## Drug portfolios
 
+[preclinical pediatric studies](https://www.youtube.com/watch?v=KsYYhyc7qnw)
+
 ## Porfolio "evidence"
 
 [@kimmelman2017drug]
