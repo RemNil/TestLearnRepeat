@@ -18,3 +18,8 @@ Some might think that the purpose of preclinical animal experiments is to provid
 
 [EMA](https://www.youtube.com/watch?v=XY9g5IwI5Cc)
 [Framework](https://www.youtube.com/watch?v=iqLfHZodSWg)
+
+## Epistemic complications
+To understand the complexity of clinical development gives rise to a [garden of forking paths](https://www.youtube.com/watch?v=Yzdqy7WR3Fg).
+
+![Garden of a forking path: Please always refer directly to the [original source](https://mucollective.northwestern.edu/files/2019-AnalysisPathsResearchSynthesis-CHI.pdf) [@alex2019decision].](https://mucollective.northwestern.edu/wp-content/uploads/2019/01/gfp-image.png)
