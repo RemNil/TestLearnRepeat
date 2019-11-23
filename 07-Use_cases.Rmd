@@ -1,0 +1,83 @@
+# Use cases
+
+
+## Quetiapine
+
+## Adverse events
+
+
+```{r eval=TRUE, include=TRUE, results=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE }
+library(openfda)
+library(ggplotify)
+library(plotly)
+
+Numb_query = fda_query("/drug/event.json") %>%
+             fda_api_key("ex0HLx7faxU5MnmTGJ9GqIRiS2qf0oP6KY8KzF3F") %>%
+             fda_count("patient.drug.drugindication");
+
+quetia_num = Numb_query %>% fda_filter("patient.drug.openfda.generic_name", "quetiapine") %>% fda_exec()
+                           
+indica.terms <- c("depression", "bipolar", "anxiety", "schizophrenia", "sleep", "insomnia",
+                  "pain", "hypertension", "psychotic", 
+                  "parkinson", "diabetes","dementia",
+                  "schizoaffective", "gastrooesophageal", 
+                  "affective", "hallucination",
+                  "arthritis", "agitation", "sclerosis", 
+                  "hyperactivity", "infection",	
+                  "attention", "stress", "traumatic", 
+                  "hypothyroidism", "pulmonary",
+                  "narcolepsy", "rheumatoid","mood", 
+                  "constipation", "asthma", "delusion",
+                  "migraine", "psychosis", "mania", "muscle", 
+                  "panic", "hepatitis", "cancer",
+                  "cardiac", "nausea", "personality", 
+                  "fibromyalgia", "epilepsy", "paranoid",
+                  "obsessive", "thyroid", "compulsive", 
+                  "convulsion", "crohn", "thrombosis",
+                  "attack", "psoriasis", "myeloma", 
+                  "headache")
+
+quetiapine_sAE <- filter(quetia_num, quetia_num$term %in% indica.terms) %>% arrange(desc(count))
+  
+
+p.2 <- plot_ly(data = quetiapine_sAE, 
+               x = ~term, 
+               y = ~count, 
+               #mode = "markers",
+               type = "bar") %>%
+layout(
+     title = "Adverse drug events reported to FDA for quetiapine",
+     xaxis = list(title = "",
+     categoryorder = "count",
+     categoryarray = ~count),
+     yaxis = list(title = "Events reported")
+)
+
+
+Age <- c("Not specified", "0-1 month", 
+         "2 months - 2 years", "3-11 years", 
+         "12-17 years", "18-64", "65-85", 
+         "more than 85 years", "Total")
+Cases <- c(6.723, 233, 141, 342, 1.125, 26.327, 5.293, 1.487, 41.671)	
+Percent <- c(16.1, 0.6, 0.3, 0.8, 2.7, 63.2, 12.7, 3.8, 100)
+
+
+EudraVigilance.df <- data.frame(matrix(nrow=09, ncol=0)) 
+EudraVigilance.df[['Year']] <- Age
+EudraVigilance.df[['Cases']] <- Cases
+EudraVigilance.df[['Percent']] <- Percent
+```
+
+
+FDA Adverse Event Reporting System ([FAERS](https://open.fda.gov/data/faers/)). [Here](https://open.fda.gov/apis/drug/event/) is quick explanation:
+`r p.2` To better understand what this data means, we need to really dig into the openFDA API.
+
+[SUSAR](https://bi.ema.europa.eu/analyticsSOAP/saw.dll?PortalPages&PortalPath=%2Fshared%2FPHV%20DAP%2F_portal%2FDAP&Action=Navigate&P0=1&P1=eq&P2=%22Line%20Listing%20Objects%22.%22Substance%20High%20Level%20Code%22&P3=1+21689)
+
+[EudraVigil](http://www.adrreports.eu/de/search_subst.html#)
+
+## Enasidenib
+
+## Deep Brain Stimulation 
+
+## Somatic genome-editing

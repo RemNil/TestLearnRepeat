@@ -1,9 +1,20 @@
 # Learning
 
+Submission, including registration, takes place as part of the [CTA process](https://www.youtube.com/watch?v=9WANVbEgHH8) and will need to include:
+
+- Main characteristics of the trial
+- Subject information sheet/Informed Consent Form (ICF)
+- Protocol
+- Investigational Medicinal Product Dossier(IMPD) (Safety and Efficacy only)
+- [Investigator Brochure (IB)]()
+- Regulator requests and assessment reports
+- Sponsor responses
+
 
 ## Past regulatory applications
-With increasing experience on CTAs or INDs, there may be associations between "success" metrics and certain formal characteristics of application materials. According to [BfArM](https://www.bfarm.de/EN/BfArM/_node.html) there are 3,647 applicatioin for 2014-2018,
+With increasing experience on [CTAs](https://eudract.ema.europa.eu/help/Default.htm#eudract/purpose_cta_ov.htm) or [INDs](https://www.fda.gov/drugs/types-applications/investigational-new-drug-ind-application), there may be associations between "success" metrics and certain formal characteristics of application materials. According to [BfArM](https://www.bfarm.de/EN/BfArM/_node.html) there are 3,647 applicatioin for 2014-2018,
 
+- How many trials fail due to bad methodological [design](https://www.youtube.com/watch?v=hDcedskQy60)? 
 
 ```{r eval=TRUE, include=TRUE, results=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE }
 # library("devtools"); devtools::install_github("ropenhealth/openfda")
@@ -135,3 +146,7 @@ Numb_query = fda_query("/drug/event.json") %>%
 quetia_num = Numb_query %>% fda_filter("patient.drug.openfda.generic_name", "quetiapine") %>% fda_exec()
 
 ```
+
+
+## EU Open Data Portal
+European public assessment reports [(EPAR)](http://data.europa.eu/euodp/en/data/dataset/epar-human-medicines) for human medicines
