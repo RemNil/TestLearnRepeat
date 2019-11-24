@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 5 Learning | Translational Research as a learning system</title>
   <meta name="description" content="Test. Learn. Repeat." />
-  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.15 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 5 Learning | Translational Research as a learning system" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Merlin Bittlinger" />
 
 
-<meta name="date" content="2019-11-22" />
+<meta name="date" content="2019-11-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -40,6 +40,7 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -47,13 +48,16 @@
 
 
 
-<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+
+
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
 <script src="libs/plotly-binding-4.9.1/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
 <link href="libs/plotly-htmlwidgets-css-1.49.4/plotly-htmlwidgets.css" rel="stylesheet" />
 <script src="libs/plotly-main-1.49.4/plotly-latest.min.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <script async defer src="https://hypothes.is/embed.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -93,6 +97,7 @@
 <li class="chapter" data-level="3.2" data-path="justification.html"><a href="justification.html#positive-predictive-value"><i class="fa fa-check"></i><b>3.2</b> Positive predictive value</a></li>
 <li class="chapter" data-level="3.3" data-path="justification.html"><a href="justification.html#apllications"><i class="fa fa-check"></i><b>3.3</b> Apllications</a></li>
 <li class="chapter" data-level="3.4" data-path="justification.html"><a href="justification.html#stakeholder-engangement"><i class="fa fa-check"></i><b>3.4</b> Stakeholder Engangement</a></li>
+<li class="chapter" data-level="3.5" data-path="justification.html"><a href="justification.html#epistemic-complications"><i class="fa fa-check"></i><b>3.5</b> Epistemic complications</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="multi-criteria-decision-analysis.html"><a href="multi-criteria-decision-analysis.html"><i class="fa fa-check"></i><b>4</b> Multi-Criteria Decision Analysis</a></li>
 <li class="chapter" data-level="5" data-path="learning.html"><a href="learning.html"><i class="fa fa-check"></i><b>5</b> Learning</a><ul>
@@ -110,11 +115,17 @@
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="use-cases.html"><a href="use-cases.html"><i class="fa fa-check"></i><b>7</b> Use cases</a><ul>
-<li class="chapter" data-level="7.1" data-path="use-cases.html"><a href="use-cases.html#quetiapine"><i class="fa fa-check"></i><b>7.1</b> Quetiapine</a></li>
-<li class="chapter" data-level="7.2" data-path="use-cases.html"><a href="use-cases.html#adverse-events"><i class="fa fa-check"></i><b>7.2</b> Adverse events</a></li>
-<li class="chapter" data-level="7.3" data-path="use-cases.html"><a href="use-cases.html#enasidenib"><i class="fa fa-check"></i><b>7.3</b> Enasidenib</a></li>
-<li class="chapter" data-level="7.4" data-path="use-cases.html"><a href="use-cases.html#deep-brain-stimulation"><i class="fa fa-check"></i><b>7.4</b> Deep Brain Stimulation</a></li>
-<li class="chapter" data-level="7.5" data-path="use-cases.html"><a href="use-cases.html#somatic-genome-editing"><i class="fa fa-check"></i><b>7.5</b> Somatic genome-editing</a></li>
+<li class="chapter" data-level="7.1" data-path="use-cases.html"><a href="use-cases.html#quetiapine"><i class="fa fa-check"></i><b>7.1</b> Quetiapine</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="use-cases.html"><a href="use-cases.html#adverse-events-quetiapine"><i class="fa fa-check"></i><b>7.1.1</b> Adverse events: Quetiapine</a></li>
+<li class="chapter" data-level="7.1.2" data-path="use-cases.html"><a href="use-cases.html#clinical-trials-quetiapine"><i class="fa fa-check"></i><b>7.1.2</b> Clinical Trials: Quetiapine</a></li>
+<li class="chapter" data-level="7.1.3" data-path="use-cases.html"><a href="use-cases.html#pubmed-search-quetiapine"><i class="fa fa-check"></i><b>7.1.3</b> Pubmed search: Quetiapine</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="use-cases.html"><a href="use-cases.html#enasidenib"><i class="fa fa-check"></i><b>7.2</b> Enasidenib</a></li>
+<li class="chapter" data-level="7.3" data-path="use-cases.html"><a href="use-cases.html#deep-brain-stimulation"><i class="fa fa-check"></i><b>7.3</b> Deep Brain Stimulation</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="use-cases.html"><a href="use-cases.html#clinical-trials-dbs"><i class="fa fa-check"></i><b>7.3.1</b> Clinical Trials: DBS</a></li>
+<li class="chapter" data-level="7.3.2" data-path="use-cases.html"><a href="use-cases.html#pubmed-search-dbs"><i class="fa fa-check"></i><b>7.3.2</b> Pubmed search: DBS</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="use-cases.html"><a href="use-cases.html#somatic-genome-editing"><i class="fa fa-check"></i><b>7.4</b> Somatic genome-editing</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -139,6 +150,13 @@
             <section class="normal" id="section-">
 <div id="learning" class="section level1">
 <h1><span class="header-section-number">Chapter 5</span> Learning</h1>
+<p>Depending on the <a href="https://collaboration.fda.gov/pqigjg5xl6jx/?proto=true">regulatory pathway</a>, there are several decision points during clinical development that can be used as <a href="https://www.eupati.eu/glossary/hard-endpoint/">“hard” endpoints</a> to measure “success” by well defined and objective criteria:</p>
+<ol style="list-style-type: decimal">
+<li>Investigational New Drug <a href="https://www.fda.gov/drugs/types-applications/investigational-new-drug-ind-application">(IND)</a> application or Clinical Trial Application (CTA) granted (yes/no)?<br />
+</li>
+<li>Market Authorisation granted (yes/no)?</li>
+</ol>
+<p>However, on closer inspection, the criteria to determine (1) and (2) are consdierably “soft” and involve less well-defined terms and subjective judgments such as “substantial evidence” or the ratio of expected benefit and risks. An important task for research ethics is to frame the question of <em>what determines “translational success”?</em> in such a way that we devise a metric that is measurable and guarantees that Translational Research froms a learning system that converges towards an optimal trade-off between research-burden-accepte <span class="citation">(Lingler et al. <a href="#ref-lingler2014new" role="doc-biblioref">2014</a>, @phillips2019analysis)</span> and information gain <span class="citation">(Ioannidis <a href="#ref-ioannidis2016most" role="doc-biblioref">2016</a>)</span>.</p>
 <p>Submission, including registration, takes place as part of the <a href="https://www.youtube.com/watch?v=9WANVbEgHH8">CTA process</a> and will need to include:</p>
 <ul>
 <li>Main characteristics of the trial</li>
@@ -151,12 +169,12 @@
 </ul>
 <div id="past-regulatory-applications" class="section level2">
 <h2><span class="header-section-number">5.1</span> Past regulatory applications</h2>
-<p>With increasing experience on <a href="https://eudract.ema.europa.eu/help/Default.htm#eudract/purpose_cta_ov.htm">CTAs</a> or <a href="https://www.fda.gov/drugs/types-applications/investigational-new-drug-ind-application">INDs</a>, there may be associations between “success” metrics and certain formal characteristics of application materials. According to <a href="https://www.bfarm.de/EN/BfArM/_node.html">BfArM</a> there are 3,647 applicatioin for 2014-2018,</p>
+<p>With increasing experience on <a href="https://eudract.ema.europa.eu/help/Default.htm#eudract/purpose_cta_ov.htm">CTAs</a> or <a href="https://www.fda.gov/drugs/types-applications/investigational-new-drug-ind-application">INDs</a>, there may be associations between “success” metrics and certain formal characteristics of application materials. According to <a href="https://www.bfarm.de/EN/BfArM/_node.html">BfArM</a> there are 3,647 CTA applicatioin for 2014-2018 in Germany and according to EMA there are <a href="https://eudract.ema.europa.eu/docs/statistics/EudraCT_Statistics_2019/EudraCT_Public_Report_Stats_Oct_2019.pdf">132,700 CTA applications</a> submitted to the EudraCT database in total.</p>
 <ul>
 <li>How many trials fail due to bad methodological <a href="https://www.youtube.com/watch?v=hDcedskQy60">design</a>?</li>
 </ul>
-<div id="htmlwidget-e4d93ab1b47e8167afb4" style="width:100%;height:400px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e4d93ab1b47e8167afb4">{"x":{"visdat":{"6944041589f":["function () ","plotlyVisDat"]},"cur_data":"6944041589f","attrs":{"6944041589f":{"x":{},"y":{},"name":"Phase 1","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"},"6944041589f.1":{"x":{},"y":{},"name":"Phase 2","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar","inherit":true},"6944041589f.2":{"x":{},"y":{},"name":"Phase 3","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar","inherit":true},"6944041589f.3":{"x":{},"y":{},"name":"Phase 4","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"yaxis":{"domain":[0,1],"automargin":true,"title":"Count"},"barmode":"stack","xaxis":{"domain":[0,1],"automargin":true,"title":"year"},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[2014,2015,2016,2017,2018],"y":[221,224,207,203,171],"name":"Phase 1","type":"bar","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2014,2015,2016,2017,2018],"y":[270,226,226,233,220],"name":"Phase 2","type":"bar","marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2014,2015,2016,2017,2018],"y":[289,297,243,234,263],"name":"Phase 3","type":"bar","marker":{"color":"rgba(44,160,44,1)","line":{"color":"rgba(44,160,44,1)"}},"error_y":{"color":"rgba(44,160,44,1)"},"error_x":{"color":"rgba(44,160,44,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2014,2015,2016,2017,2018],"y":[84,100,39,38,40],"name":"Phase 4","type":"bar","marker":{"color":"rgba(214,39,40,1)","line":{"color":"rgba(214,39,40,1)"}},"error_y":{"color":"rgba(214,39,40,1)"},"error_x":{"color":"rgba(214,39,40,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-a5a95e63f8e8d475d4f4" style="width:100%;height:400px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a5a95e63f8e8d475d4f4">{"x":{"visdat":{"4ca447602280":["function () ","plotlyVisDat"]},"cur_data":"4ca447602280","attrs":{"4ca447602280":{"x":{},"y":{},"name":"Phase 1","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"},"4ca447602280.1":{"x":{},"y":{},"name":"Phase 2","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar","inherit":true},"4ca447602280.2":{"x":{},"y":{},"name":"Phase 3","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar","inherit":true},"4ca447602280.3":{"x":{},"y":{},"name":"Phase 4","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"yaxis":{"domain":[0,1],"automargin":true,"title":"Count"},"barmode":"stack","xaxis":{"domain":[0,1],"automargin":true,"title":"year"},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[2014,2015,2016,2017,2018],"y":[221,224,207,203,171],"name":"Phase 1","type":"bar","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2014,2015,2016,2017,2018],"y":[270,226,226,233,220],"name":"Phase 2","type":"bar","marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2014,2015,2016,2017,2018],"y":[289,297,243,234,263],"name":"Phase 3","type":"bar","marker":{"color":"rgba(44,160,44,1)","line":{"color":"rgba(44,160,44,1)"}},"error_y":{"color":"rgba(44,160,44,1)"},"error_x":{"color":"rgba(44,160,44,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2014,2015,2016,2017,2018],"y":[84,100,39,38,40],"name":"Phase 4","type":"bar","marker":{"color":"rgba(214,39,40,1)","line":{"color":"rgba(214,39,40,1)"}},"error_y":{"color":"rgba(214,39,40,1)"},"error_x":{"color":"rgba(214,39,40,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 <p>For further information, please refer directly to source of origin <a href="https://www.bfarm.de/DE/Arzneimittel/Arzneimittelzulassung/KlinischePruefung/Genehmigungs-Verfahren/Statistik.html">BfArM 2019</a>.</p>
 <!---
 ![Please refer directly to source of origin. [BfArM 2019](https://www.bfarm.de/DE/Arzneimittel/Arzneimittelzulassung/KlinischePruefung/Genehmigungs-Verfahren/Statistik.html)](https://www.bfarm.de/SharedDocs/Bilder/Arzneimittel/klinPr/Statistik2014-2018.jpg?__blob=normal&v=3){width=450px}
@@ -164,8 +182,8 @@
 
 ![Please refer directly to source of origin. [Pei 2019](https://www.pei.de/EN/information/license-applicants/clinical-trial-authorisation/statistics/statistics-clinical-trials-node.html)](https://www.pei.de/SharedDocs/Bilder/EN/license-applicants/overview-all-requests.jpg?__blob=thumbnail&v=10){width=450px}
 -->
-<div id="htmlwidget-63abfebda4196cd17914" style="width:100%;height:400px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-63abfebda4196cd17914">{"x":{"visdat":{"69441531125":["function () ","plotlyVisDat"]},"cur_data":"69441531125","attrs":{"69441531125":{"x":{},"y":{},"name":"Phase 1","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"},"69441531125.1":{"x":{},"y":{},"name":"Phase 2","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar","inherit":true},"69441531125.2":{"x":{},"y":{},"name":"Phase 3","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar","inherit":true},"69441531125.3":{"x":{},"y":{},"name":"Phase 4","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"yaxis":{"domain":[0,1],"automargin":true,"title":"Count"},"barmode":"stack","xaxis":{"domain":[0,1],"automargin":true,"title":"year"},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018],"y":[10,24,27,27,36,30,33,47,36,41,48,51,55,73,53],"name":"Phase 1","type":"bar","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018],"y":[4,43,59,89,92,79,97,113,118,96,83,125,131,117,151],"name":"Phase 2","type":"bar","marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018],"y":[10,74,86,83,73,97,108,107,100,100,119,143,141,130,136],"name":"Phase 3","type":"bar","marker":{"color":"rgba(44,160,44,1)","line":{"color":"rgba(44,160,44,1)"}},"error_y":{"color":"rgba(44,160,44,1)"},"error_x":{"color":"rgba(44,160,44,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018],"y":[1,14,10,11,12,13,9,13,11,8,17,8,13,12,9],"name":"Phase 4","type":"bar","marker":{"color":"rgba(214,39,40,1)","line":{"color":"rgba(214,39,40,1)"}},"error_y":{"color":"rgba(214,39,40,1)"},"error_x":{"color":"rgba(214,39,40,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-d589982fd853c41a4b61" style="width:100%;height:400px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d589982fd853c41a4b61">{"x":{"visdat":{"4ca43f57d80":["function () ","plotlyVisDat"]},"cur_data":"4ca43f57d80","attrs":{"4ca43f57d80":{"x":{},"y":{},"name":"Phase 1","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"},"4ca43f57d80.1":{"x":{},"y":{},"name":"Phase 2","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar","inherit":true},"4ca43f57d80.2":{"x":{},"y":{},"name":"Phase 3","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar","inherit":true},"4ca43f57d80.3":{"x":{},"y":{},"name":"Phase 4","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"yaxis":{"domain":[0,1],"automargin":true,"title":"Count"},"barmode":"stack","xaxis":{"domain":[0,1],"automargin":true,"title":"year"},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018],"y":[10,24,27,27,36,30,33,47,36,41,48,51,55,73,53],"name":"Phase 1","type":"bar","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018],"y":[4,43,59,89,92,79,97,113,118,96,83,125,131,117,151],"name":"Phase 2","type":"bar","marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018],"y":[10,74,86,83,73,97,108,107,100,100,119,143,141,130,136],"name":"Phase 3","type":"bar","marker":{"color":"rgba(44,160,44,1)","line":{"color":"rgba(44,160,44,1)"}},"error_y":{"color":"rgba(44,160,44,1)"},"error_x":{"color":"rgba(44,160,44,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018],"y":[1,14,10,11,12,13,9,13,11,8,17,8,13,12,9],"name":"Phase 4","type":"bar","marker":{"color":"rgba(214,39,40,1)","line":{"color":"rgba(214,39,40,1)"}},"error_y":{"color":"rgba(214,39,40,1)"},"error_x":{"color":"rgba(214,39,40,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 <p>For further information, please refer directly to source of origin <a href="https://www.pei.de/EN/information/license-applicants/clinical-trial-authorisation/statistics/statistics-clinical-trials-node.html">Pei 2019</a>.</p>
 <div id="limitations" class="section level3">
 <h3><span class="header-section-number">5.1.1</span> Limitations</h3>
@@ -179,6 +197,15 @@
 <h2><span class="header-section-number">5.2</span> EU Open Data Portal</h2>
 <p>European public assessment reports <a href="http://data.europa.eu/euodp/en/data/dataset/epar-human-medicines">(EPAR)</a> for human medicines</p>
 
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-ioannidis2016most">
+<p>Ioannidis, John PA. 2016. “Why Most Clinical Research Is Not Useful.” <em>PLoS Medicine</em> 13 (6): e1002049.</p>
+</div>
+<div id="ref-lingler2014new">
+<p>Lingler, Jennifer H, Karen L Schmidt, Amanda L Gentry, Lu Hu, and Lauren A Terhorst. 2014. “A New Measure of Research Participant Burden: Brief Report.” <em>Journal of Empirical Research on Human Research Ethics</em> 9 (4): 46–49.</p>
 </div>
 </div>
 <div class = rmdreview>
@@ -195,24 +222,25 @@
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": true,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": true,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "twitter", "linkedin"]
+"all": ["facebook", "twitter", "linkedin"],
+"github": true
 },
 "fontsettings": {
 "theme": "white",

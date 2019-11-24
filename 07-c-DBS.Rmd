@@ -1,0 +1,257 @@
+### Clinical Trials: DBS
+
+```{r eval=TRUE, include=TRUE, results=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE }
+# install.packages("devtools")
+# library(devtools)
+# install_github("titaniumtroop/rclinicaltrials")
+
+# library(rclinicaltrials)
+# z <- clinicaltrials_search(query = 'deep brain stimulation')
+# str(z)
+
+# install.packages("RPostgreSQL")
+# library(RPostgreSQL)
+# drv <- dbDriver('PostgreSQL')
+# con <- dbConnect(drv,
+#                  dbname="aact",
+#                  host="aact-db.ctti-clinicaltrials.org",
+#                  port=5432,
+#                  user="remnil",
+#                  password="hthUV4Ut!")
+# 
+# aact_sample <- dbGetQuery(conn=con,
+#                           statement='deep+brain+stimulation')
+# write.csv(aact_sample, file='aact_sample.csv')
+# print(aact_sample)
+
+# get result set
+```
+
+
+```{r eval=TRUE, include=TRUE, results=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+# install.packages("devtools")
+# library(devtools)
+# install_github("titaniumtroop/rclinicaltrials")
+
+# library(rclinicaltrials)
+# z <- clinicaltrials_search(query = 'deep brain stimulation')
+# str(z)
+
+# install.packages("RPostgreSQL")
+# library(RPostgreSQL)
+# drv <- dbDriver('PostgreSQL')
+# con <- dbConnect(drv,
+#                  dbname="aact",
+#                  host="aact-db.ctti-clinicaltrials.org",
+#                  port=5432,
+#                  user="remnil",
+#                  password="hthUV4Ut!")
+# 
+# aact_sample <- dbGetQuery(conn=con,
+#                           statement='deep+brain+stimulation')
+# write.csv(aact_sample, file='aact_sample.csv')
+# print(aact_sample)
+
+# get result set
+```
+
+
+### Pubmed search: DBS
+
+```{r eval=FALSE, include=FALSE, results=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+search_topic <- c('(" "deep+brain+stimulation"[All Fields])')
+
+# narrow a search query and indicate available data for querying criteria:
+search_query <- EUtilsSummary(search_topic, 
+                              db="pubmed", # any valid Entrez database
+                              encoding="utf-8",
+                              #mindate=2014, 
+                              #maxdate=2014,
+                              retmax=5050)
+
+# see what the search_query holds:
+summary(search_query)
+
+# fetch for the actual data:
+D <- EUtilsGet(search_query)
+
+res<-data.frame(cbind(PMID(D),
+                      YearEpublish(D),
+                      unlist(lapply(Author(D),function(a){paste(paste(a$LastName,a$Initials,sep=" "),collapse=";")})), #Author(D),  
+                      ISSN(D),                
+                      Title(D),
+                      ArticleTitle(D),
+                      ELocationID(D),
+                      AbstractText(D),
+                      Affiliation(D),
+                      Language(D),
+                      unlist(lapply(PublicationType(D),function(a){paste(a,collapse =";")})),
+                      MedlineTA(D),
+                      NlmUniqueID(D),
+                      ISSNLinking(D),
+                      PublicationStatus(D),
+                      ArticleId(D),
+                      Issue(D),
+                      ISOAbbreviation(D),
+                      MedlinePgn(D),
+                      CopyrightInformation(D),
+                      Country(D),
+                      GrantID(D),
+                      Acronym(D),
+                      Agency(D),
+                      RegistryNumber(D),
+                      RefSource(D),
+                      CollectiveName(D),
+                      unlist(lapply(Mesh(D),function(a){if (is.data.frame(a)){a=paste(a$Heading,collapse =";")}else{a='NA'}}))))
+
+res <-as.data.frame(res)
+colnames(res)<-c("PMID",
+                 "YEAR",
+                 "AUTHORS",
+                 "ISSN",
+                 "JOURNAL",
+                 "TITLE",
+                 "DOI",
+                 "ABSTRACT",
+                 "Affiliation",
+                 "Language",
+                 "PublicationType",
+                 "MedlineTA",
+                 "NlmUniqueID",
+                 "ISSNLinking",
+                 "PublicationStatus",
+                 "ArticleId",
+                 "Issue",
+                 "ISOAbbreviation",
+                 "MedlinePgn",
+                 "CopyrightInformation",
+                 "Country",
+                 "GrantID",
+                 "Acronym",
+                 "Agency",
+                 "RegistryNumber",
+                 "RefSource",
+                 "CollectiveName",
+                 "Mesh")
+
+rownames(res)<-res$PMID
+
+
+DATA <- data.frame(lapply(res, toupper),
+                   stringsAsFactors = FALSE)
+DATA$DB = "PUBMED"
+
+resCT <-subset(DATA, grepl(c("Trial"), res$PublicationTyp, ignore.case = FALSE, perl = FALSE,
+      fixed = FALSE, useBytes = FALSE)==TRUE)
+
+DATA.CT <- data.frame(lapply(resCT, toupper),
+                   stringsAsFactors = FALSE)
+
+Mesh <-  lapply(resCT$Mesh, function(a){unlist(strsplit(a, split = ";"))})
+
+
+#M <- pubmed2df(D)
+#M <- convert2df(D, dbsource = "pubmed", format = "plaintext")
+
+
+# https://cran.r-project.org/web/packages/RISmed/RISmed.pdf
+# AU		 Authors
+# TI		 Document Title
+# SO		 Publication Name (or Source)
+# JI		 ISO Source Abbreviation
+# DT		 Document Type
+# DE		 Authors' Keywords
+# ID		 Keywords associated by SCOPUS or WoS database
+# AB		 Abstract
+# C1		 Author Address
+# RP		 Reprint Address
+# CR		 Cited References
+# TC		 Times Cited
+# PY		 Year
+# SC		 Subject Category
+# UT		 Unique Article Identifier
+# DB		 Database
+
+
+saveRDS(DATA.CT, paste0("DATA.CT_", Sys.Date(), sep=".","RData"))
+
+saveRDS(res, paste0("DBS_res_", Sys.Date(), sep=".","RData"))
+saveRDS(D, paste0("DBS_D_", Sys.Date(), sep=".","RData"))
+```
+
+
+```{r}
+library("kableExtra")
+DT.CT<- readRDS("DATA.CT_2019-11-24.Rdata")
+
+DT.CT %>%
+  DT::datatable(
+    extensions = 'Buttons', 
+    options = list(dom = 'Bfrtip', 
+                   buttons = c('excel', "csv")))
+# Pubmed.DBS <- kable(res) %>%
+#   kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = T, font_size = 7) %>%
+#   scroll_box(width = "550px", height = "400px")
+
+
+
+# Pubmed.DBS <- kable(res) %>%
+#   kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = T, font_size = 7) 
+
+D <- readRDS("DBS_D_2019-11-24.Rdata")
+
+library("ggplot2")
+y <- YearPubmed(D); r <- YearReceived(D)
+
+date(); count<-table(y)
+count<-as.data.frame(count)
+names(count)<-c("Year", "Counts")
+num <- data.frame(Year=count$Year, Counts=cumsum(count$Counts))
+num$g <- "Quetiapine"
+names(num) <- c("Year", "Counts", "g")
+
+q <- ggplot(count, aes(x=Year,y = Counts)) + geom_bar(stat = "identity", fill="#FF0040")
+
+q <- q + ggtitle(paste("Types of PubMed articles containing \'", num$g, "\' ", "= ", max(num$Counts), sep="")) +
+     ylab("Types of articles") +
+     xlab(paste("\n Year \n Query date: ", Sys.time(), sep="")) +
+     labs(colour="") +
+     theme_bw() + theme(axis.text.x=element_text(angle=35, vjust=1, hjust=1))
+     
+
+pilot_DBS_by_year <- ggplotly(q)
+
+#htmlwidgets::saveWidget(pilot_results_by_year, "pilot_results_by_year.html")
+```
+
+
+```{r}
+pubType <- unlist(PublicationType(D))
+ngs_pubType_count <- as.data.frame(pubType)
+
+q.2 <- ggplot(data=ngs_pubType_count, aes(x=pubType)) +
+  geom_bar(stat="count", fill="#003754") +
+  coord_flip() +
+  theme_bw()+ 
+  theme(axis.text.x=element_text(angle=0, vjust=1, hjust=1))
+
+pilot_DBS_type_by_year <- ggplotly(q.2)
+
+```
+
+
+```{r}
+journal <- MedlineTA(D)
+ngs_journal_count <- as.data.frame(table(journal))
+ngs_journal_count_top25 <- ngs_journal_count[order(-ngs_journal_count[,2]),][1:25,]
+journal_names <- paste(ngs_journal_count_top25$journal,"[jo]",sep="")
+ 
+
+g.3 <-ggplot(ngs_journal_count_top25, aes(journal, Freq)) + 
+  geom_bar(stat="identity", fill="#c12177")+
+  coord_flip() +
+  theme_bw()
+
+top25_DBSJournals <- ggplotly(g.3)
+
+```

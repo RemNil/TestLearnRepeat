@@ -1,0 +1,319 @@
+### Adverse events: Quetiapine
+
+
+```{r eval=TRUE, include=TRUE, results=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE }
+library("openfda")
+library("dplyr")
+library("plotly")
+Numb_query = fda_query("/drug/event.json") %>%
+             fda_api_key("ex0HLx7faxU5MnmTGJ9GqIRiS2qf0oP6KY8KzF3F") %>%
+             fda_count("patient.drug.drugindication");
+
+quetia_num = Numb_query %>% fda_filter("patient.drug.openfda.generic_name", "quetiapine") %>% fda_exec()
+                           
+indica.terms <- c("depression", "bipolar", "anxiety", "schizophrenia", "sleep", "insomnia",
+                  "pain", "hypertension", "psychotic", 
+                  "parkinson", "diabetes","dementia",
+                  "schizoaffective", "gastrooesophageal", 
+                  "affective", "hallucination",
+                  "arthritis", "agitation", "sclerosis", 
+                  "hyperactivity", "infection",	
+                  "attention", "stress", "traumatic", 
+                  "hypothyroidism", "pulmonary",
+                  "narcolepsy", "rheumatoid","mood", 
+                  "constipation", "asthma", "delusion",
+                  "migraine", "psychosis", "mania", "muscle", 
+                  "panic", "hepatitis", "cancer",
+                  "cardiac", "nausea", "personality", 
+                  "fibromyalgia", "epilepsy", "paranoid",
+                  "obsessive", "thyroid", "compulsive", 
+                  "convulsion", "crohn", "thrombosis",
+                  "attack", "psoriasis", "myeloma", 
+                  "headache")
+
+quetiapine_sAE <- filter(quetia_num, quetia_num$term %in% indica.terms) %>% arrange(desc(count))
+  
+
+p.2 <- plot_ly(data = quetiapine_sAE, 
+               x = ~term, 
+               y = ~count, 
+               #mode = "markers",
+               type = "bar") %>%
+layout(
+     title = "Adverse drug events reported to FDA for quetiapine",
+     xaxis = list(title = "",
+     categoryorder = "count",
+     categoryarray = ~count),
+     yaxis = list(title = "Events reported")
+)
+
+
+Age <- c("Not specified", "0-1 month", 
+         "2 months - 2 years", "3-11 years", 
+         "12-17 years", "18-64", "65-85", 
+         "more than 85 years", "Total")
+Cases <- c(6.723, 233, 141, 342, 1.125, 26.327, 5.293, 1.487, 41.671)	
+Percent <- c(16.1, 0.6, 0.3, 0.8, 2.7, 63.2, 12.7, 3.8, 100)
+
+
+EudraVigilance.df <- data.frame(matrix(nrow=09, ncol=0)) 
+EudraVigilance.df[['Year']] <- Age
+EudraVigilance.df[['Cases']] <- Cases
+EudraVigilance.df[['Percent']] <- Percent
+```
+
+
+
+### Clinical Trials: Quetiapine
+
+```{r eval=TRUE, include=TRUE, results=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE }
+# install.packages("devtools")
+# library(devtools)
+# install_github("titaniumtroop/rclinicaltrials")
+
+# library(rclinicaltrials)
+# z <- clinicaltrials_search(query = 'deep brain stimulation')
+# str(z)
+
+# install.packages("RPostgreSQL")
+# library(RPostgreSQL)
+# drv <- dbDriver('PostgreSQL')
+# con <- dbConnect(drv,
+#                  dbname="aact",
+#                  host="aact-db.ctti-clinicaltrials.org",
+#                  port=5432,
+#                  user="remnil",
+#                  password="hthUV4Ut!")
+# 
+# aact_sample <- dbGetQuery(conn=con,
+#                           statement='deep+brain+stimulation')
+# write.csv(aact_sample, file='aact_sample.csv')
+# print(aact_sample)
+
+# get result set
+```
+
+
+```{r eval=FALSE, include=FALSE, results=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE }
+# install.packages("devtools")
+# library(devtools)
+# install_github("titaniumtroop/rclinicaltrials")
+
+# library(rclinicaltrials)
+# z <- clinicaltrials_search(query = 'deep brain stimulation')
+# str(z)
+
+# install.packages("RPostgreSQL")
+# library(RPostgreSQL)
+# drv <- dbDriver('PostgreSQL')
+# con <- dbConnect(drv,
+#                  dbname="aact",
+#                  host="aact-db.ctti-clinicaltrials.org",
+#                  port=5432,
+#                  user="remnil",
+#                  password="hthUV4Ut!")
+# 
+# aact_sample <- dbGetQuery(conn=con,
+#                           statement='deep+brain+stimulation')
+# write.csv(aact_sample, file='aact_sample.csv')
+# print(aact_sample)
+
+# get result set
+```
+
+
+### Pubmed search: Quetiapine
+
+```{r eval=FALSE, include=FALSE, results=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+search_topic <- c('("quetiapine fumarate"[MeSH Terms] OR ("quetiapine"[All Fields] AND "fumarate"[All Fields]) OR "quetiapine fumarate"[All Fields] OR "seroquel"[All Fields]) OR ("quetiapine fumarate"[MeSH Terms] OR ("quetiapine"[All Fields] AND "fumarate"[All Fields]) OR "quetiapine fumarate"[All Fields] OR "quetiapine"[All Fields])')
+
+# narrow a search query and indicate available data for querying criteria:
+search_query <- EUtilsSummary(search_topic, 
+                              db="pubmed", # any valid Entrez database
+                              encoding="utf-8",
+                              #mindate=2014, 
+                              #maxdate=2014,
+                              retmax=5050)
+
+# see what the search_query holds:
+summary(search_query)
+
+# fetch for the actual data:
+D <- EUtilsGet(search_query)
+
+saveRDS(D, paste0("Quietiapine_D_", Sys.Date(), sep=".","RData"))
+```
+
+
+```{r eval=TRUE, include=TRUE, results=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+library("RISmed")
+D <- readRDS("Quietiapine_D_2019-11-24.Rdata")
+y <- YearPubmed(D); r <- YearReceived(D)
+
+date(); count<-table(y)
+count<-as.data.frame(count)
+names(count)<-c("Year", "Counts")
+num <- data.frame(Year=count$Year, Counts=cumsum(count$Counts))
+num$g <- "Quetiapine"
+names(num) <- c("Year", "Counts", "g")
+
+q <- ggplot(count, aes(x=Year,y = Counts)) + geom_bar(stat = "identity", fill="#157aca")
+
+q <- q + ggtitle(paste("Types of PubMed records containing \'", num$g, "\' ", "= ", max(num$Counts), sep="")) +
+     ylab("Types of articles") +
+     xlab(paste("\n Year \n Query date: ", Sys.time(), sep="")) +
+     labs(colour="") +
+     theme_bw() + theme(axis.text.x=element_text(angle=35, vjust=1, hjust=1))
+     
+
+pilot_results_by_year <- ggplotly(q)
+#htmlwidgets::saveWidget(pilot_results_by_year, "pilot_results_by_year.html")
+```
+
+
+```{r eval=FALSE, include=FALSE, results=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE }
+res<-data.frame(cbind(PMID(D),
+                      YearEpublish(D),
+                      unlist(lapply(Author(D),function(a){paste(paste(a$LastName,a$Initials,sep=" "),collapse=";")})), #Author(D),  
+                      ISSN(D),                
+                      Title(D),
+                      ArticleTitle(D),
+                      ELocationID(D),
+                      AbstractText(D),
+                      Affiliation(D),
+                      Language(D),
+                      unlist(lapply(PublicationType(D),function(a){paste(a,collapse =";")})),
+                      MedlineTA(D),
+                      NlmUniqueID(D),
+                      ISSNLinking(D),
+                      PublicationStatus(D),
+                      ArticleId(D),
+                      Issue(D),
+                      ISOAbbreviation(D),
+                      MedlinePgn(D),
+                      CopyrightInformation(D),
+                      Country(D),
+                      GrantID(D),
+                      Acronym(D),
+                      Agency(D),
+                      RegistryNumber(D),
+                      RefSource(D),
+                      CollectiveName(D),
+                      unlist(lapply(Mesh(D),function(a){if (is.data.frame(a)){a=paste(a$Heading,collapse =";")}else{a='NA'}}))))
+
+res <-as.data.frame(res)
+colnames(res)<-c("PMID",
+                 "YEAR",
+                 "AUTHORS",
+                 "ISSN",
+                 "JOURNAL",
+                 "TITLE",
+                 "DOI",
+                 "ABSTRACT",
+                 "Affiliation",
+                 "Language",
+                 "PublicationType",
+                 "MedlineTA",
+                 "NlmUniqueID",
+                 "ISSNLinking",
+                 "PublicationStatus",
+                 "ArticleId",
+                 "Issue",
+                 "ISOAbbreviation",
+                 "MedlinePgn",
+                 "CopyrightInformation",
+                 "Country",
+                 "GrantID",
+                 "Acronym",
+                 "Agency",
+                 "RegistryNumber",
+                 "RefSource",
+                 "CollectiveName",
+                 "Mesh")
+
+rownames(res)<-res$PMID
+
+
+
+DATA <- data.frame(lapply(res, toupper),
+                   stringsAsFactors = FALSE)
+DATA$DB = "PUBMED"
+
+resCT <-subset(DATA, grepl(c("Trial"), res$PublicationTyp, ignore.case = FALSE, perl = FALSE,
+      fixed = FALSE, useBytes = FALSE)==TRUE)
+
+DATA.CT <- data.frame(lapply(resCT, toupper),
+                   stringsAsFactors = FALSE)
+
+
+
+
+Mesh <-  lapply(resCT$Mesh, function(a){unlist(strsplit(a, split = ";"))})
+
+
+#M <- pubmed2df(D)
+#M <- convert2df(D, dbsource = "pubmed", format = "plaintext")
+
+
+# https://cran.r-project.org/web/packages/RISmed/RISmed.pdf
+# AU		 Authors
+# TI		 Document Title
+# SO		 Publication Name (or Source)
+# JI		 ISO Source Abbreviation
+# DT		 Document Type
+# DE		 Authors' Keywords
+# ID		 Keywords associated by SCOPUS or WoS database
+# AB		 Abstract
+# C1		 Author Address
+# RP		 Reprint Address
+# CR		 Cited References
+# TC		 Times Cited
+# PY		 Year
+# SC		 Subject Category
+# UT		 Unique Article Identifier
+# DB		 Database
+
+
+# Pubmed<- kable(res) %>%
+#   kable_styling("striped", full_width = F) %>%
+#   column_spec(c(2,3), bold = F, color = "black", background = "white") %>%
+#   column_spec(c(1), bold = F, color = "white", background = "gray") %>%
+#   row_spec(0, bold = F, color = "white", background = "#2780e3")
+
+saveRDS(DATA, paste0("Quietiapine_data_", Sys.Date(), sep=".","RData"))
+saveRDS(DATA.CT, paste0("Quietiapine_DATA.CT_", Sys.Date(), sep=".","RData"))
+```
+
+
+
+
+```{r}
+pubType <- unlist(PublicationType(D))
+ngs_pubType_count <- as.data.frame(pubType)
+
+q.2 <- ggplot(data=ngs_pubType_count, aes(x=pubType)) +
+  geom_bar(stat="count", fill="#003754") +
+  coord_flip() +
+  theme_bw()+ 
+  theme(axis.text.x=element_text(angle=0, vjust=1, hjust=1))
+
+pilot_type_by_year <- ggplotly(q.2)
+
+```
+
+
+```{r}
+journal <- MedlineTA(D)
+ngs_journal_count <- as.data.frame(table(journal))
+ngs_journal_count_top25 <- ngs_journal_count[order(-ngs_journal_count[,2]),][1:25,]
+journal_names <- paste(ngs_journal_count_top25$journal,"[jo]",sep="")
+ 
+
+g.3 <-ggplot(ngs_journal_count_top25, aes(journal, Freq)) + 
+  geom_bar(stat="identity", fill="#c12177")+
+  coord_flip() +
+  theme_bw()
+
+top25_quetiapineJournals <- ggplotly(g.3)
+
+```

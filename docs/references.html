@@ -24,14 +24,14 @@
 <meta name="author" content="Merlin Bittlinger" />
 
 
-<meta name="date" content="2019-11-18" />
+<meta name="date" content="2019-11-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="multi-criteria-decision-analysis.html"/>
+<link rel="prev" href="use-cases.html"/>
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,6 +50,14 @@
 
 
 
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.49.4/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.49.4/plotly-latest.min.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <script async defer src="https://hypothes.is/embed.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -79,10 +87,46 @@
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
-<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#drug-portfolios"><i class="fa fa-check"></i><b>1.1</b> Drug portfolios</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#porfolio-evidence"><i class="fa fa-check"></i><b>1.2</b> Porfolio “evidence”</a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="translation.html"><a href="translation.html"><i class="fa fa-check"></i><b>2</b> Translation</a></li>
-<li class="chapter" data-level="3" data-path="justification.html"><a href="justification.html"><i class="fa fa-check"></i><b>3</b> Justification</a></li>
+<li class="chapter" data-level="3" data-path="justification.html"><a href="justification.html"><i class="fa fa-check"></i><b>3</b> Justification</a><ul>
+<li class="chapter" data-level="3.1" data-path="justification.html"><a href="justification.html#clinical-equipoise"><i class="fa fa-check"></i><b>3.1</b> Clinical Equipoise</a></li>
+<li class="chapter" data-level="3.2" data-path="justification.html"><a href="justification.html#positive-predictive-value"><i class="fa fa-check"></i><b>3.2</b> Positive predictive value</a></li>
+<li class="chapter" data-level="3.3" data-path="justification.html"><a href="justification.html#apllications"><i class="fa fa-check"></i><b>3.3</b> Apllications</a></li>
+<li class="chapter" data-level="3.4" data-path="justification.html"><a href="justification.html#stakeholder-engangement"><i class="fa fa-check"></i><b>3.4</b> Stakeholder Engangement</a></li>
+<li class="chapter" data-level="3.5" data-path="justification.html"><a href="justification.html#epistemic-complications"><i class="fa fa-check"></i><b>3.5</b> Epistemic complications</a></li>
+</ul></li>
 <li class="chapter" data-level="4" data-path="multi-criteria-decision-analysis.html"><a href="multi-criteria-decision-analysis.html"><i class="fa fa-check"></i><b>4</b> Multi-Criteria Decision Analysis</a></li>
+<li class="chapter" data-level="5" data-path="learning.html"><a href="learning.html"><i class="fa fa-check"></i><b>5</b> Learning</a><ul>
+<li class="chapter" data-level="5.1" data-path="learning.html"><a href="learning.html#past-regulatory-applications"><i class="fa fa-check"></i><b>5.1</b> Past regulatory applications</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="learning.html"><a href="learning.html#limitations"><i class="fa fa-check"></i><b>5.1.1</b> Limitations</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="learning.html"><a href="learning.html#eu-open-data-portal"><i class="fa fa-check"></i><b>5.2</b> EU Open Data Portal</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="pharmacovigiliance.html"><a href="pharmacovigiliance.html"><i class="fa fa-check"></i><b>6</b> Pharmacovigiliance</a><ul>
+<li class="chapter" data-level="6.1" data-path="pharmacovigiliance.html"><a href="pharmacovigiliance.html#openfda"><i class="fa fa-check"></i><b>6.1</b> OpenFDA</a></li>
+<li class="chapter" data-level="6.2" data-path="pharmacovigiliance.html"><a href="pharmacovigiliance.html#pharmacovigiliance-1"><i class="fa fa-check"></i><b>6.2</b> Pharmacovigiliance</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="pharmacovigiliance.html"><a href="pharmacovigiliance.html#data-cleaning"><i class="fa fa-check"></i><b>6.2.1</b> Data cleaning</a></li>
+<li class="chapter" data-level="6.2.2" data-path="pharmacovigiliance.html"><a href="pharmacovigiliance.html#further-readings"><i class="fa fa-check"></i><b>6.2.2</b> Further readings</a></li>
+<li class="chapter" data-level="6.2.3" data-path="pharmacovigiliance.html"><a href="pharmacovigiliance.html#further-readings-1"><i class="fa fa-check"></i><b>6.2.3</b> Further readings</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="use-cases.html"><a href="use-cases.html"><i class="fa fa-check"></i><b>7</b> Use cases</a><ul>
+<li class="chapter" data-level="7.1" data-path="use-cases.html"><a href="use-cases.html#quetiapine"><i class="fa fa-check"></i><b>7.1</b> Quetiapine</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="use-cases.html"><a href="use-cases.html#adverse-events-quetiapine"><i class="fa fa-check"></i><b>7.1.1</b> Adverse events: Quetiapine</a></li>
+<li class="chapter" data-level="7.1.2" data-path="use-cases.html"><a href="use-cases.html#clinical-trials-quetiapine"><i class="fa fa-check"></i><b>7.1.2</b> Clinical Trials: Quetiapine</a></li>
+<li class="chapter" data-level="7.1.3" data-path="use-cases.html"><a href="use-cases.html#pubmed-search-quetiapine"><i class="fa fa-check"></i><b>7.1.3</b> Pubmed search: Quetiapine</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="use-cases.html"><a href="use-cases.html#enasidenib"><i class="fa fa-check"></i><b>7.2</b> Enasidenib</a></li>
+<li class="chapter" data-level="7.3" data-path="use-cases.html"><a href="use-cases.html#deep-brain-stimulation"><i class="fa fa-check"></i><b>7.3</b> Deep Brain Stimulation</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="use-cases.html"><a href="use-cases.html#clinical-trials-dbs"><i class="fa fa-check"></i><b>7.3.1</b> Clinical Trials: DBS</a></li>
+<li class="chapter" data-level="7.3.2" data-path="use-cases.html"><a href="use-cases.html#pubmed-search-dbs"><i class="fa fa-check"></i><b>7.3.2</b> Pubmed search: DBS</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="use-cases.html"><a href="use-cases.html#somatic-genome-editing"><i class="fa fa-check"></i><b>7.4</b> Somatic genome-editing</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://remnil.github.io/" target=BIH QUEST Center</a></li>
@@ -109,7 +153,31 @@
 
 <div id="refs" class="references">
 <div>
+<p>Carlisle, Benjamin Gregory, Adélaı̈de Doussau, and Jonathan Kimmelman. 2019. “Benefit, Burden, and Impact for a Cohort of Post-Approval Cancer Combination Trials.” <em>Clinical Trials</em>, 1740774519873883.</p>
+</div>
+<div>
+<p>Freedman, B. 1987. “Equipoise and the Ethics of Clinical Research.” <em>The New England Journal of Medicine</em> 317 (3): 141—145. <a href="https://doi.org/10.1056/nejm198707163170304">https://doi.org/10.1056/nejm198707163170304</a>.</p>
+</div>
+<div>
+<p>Hoffmann, Torsten, and Marcus Gastreich. 2019. “The Next Level in Chemical Space Navigation: Going Far Beyond Enumerable Compound Libraries.” <em>Drug Discovery Today</em>.</p>
+</div>
+<div>
+<p>Kale, Alex, Matthew Kay, and Jessica Hullman. 2019. “Decision-Making Under Uncertainty in Research Synthesis: Designing for the Garden of Forking Paths.” In <em>Proceedings of the 2019 Chi Conference on Human Factors in Computing Systems</em>. ACM.</p>
+</div>
+<div>
+<p>Kim, Myung S., and Vinay Prasad. 2019. “The Clinical Trials Portfolio for On-label and Off-label Studies of Eculizumab.” <em>JAMA Internal Medicine</em>, October, 1–3. <a href="https://doi.org/10.1001/jamainternmed.2019.4694">https://doi.org/10.1001/jamainternmed.2019.4694</a>.</p>
+</div>
+<div>
+<p>Kimmelman, Jonathan, Benjamin Carlisle, and Mithat Gönen. 2017. “Drug Development at the Portfolio Level Is Important for Policy, Care Decisions and Human Protections.” <em>Jama</em> 318 (11): 1003–4.</p>
+</div>
+<div>
 <p>Kimmelman, Jonathan, and Alex John London. 2015. “The Structure of Clinical Translation: Efficiency, Information, and Ethics.” <em>Hastings Center Report</em> 45 (2): 27–39.</p>
+</div>
+<div>
+<p>London, Alex John, and Jonathan Kimmelman. 2019. “Clinical Trial Portfolios: A Critical Oversight in Human Research Ethics, Drug Regulation, and Policy.” <em>Hastings Center Report</em> 49 (4): 31–41.</p>
+</div>
+<div>
+<p>Mattina, James, Benjamin Carlisle, Yasmina Hachem, Dean Fergusson, and Jonathan Kimmelman. 2017. “Inefficiencies and Patient Burdens in the Development of the Targeted Cancer Drug Sorafenib: A Systematic Review.” <em>PLoS Biology</em> 15 (2): e2000487.</p>
 </div>
 <div>
 <p>Pajer, Stephan, Marc Streit, Thomas Torsney-Weir, Florian Spechtenhauser, Torsten Möller, and Harald Piringer. 2016. “Weightlifter: Visual Weight Space Exploration for Multi-Criteria Decision Making.” <em>IEEE Transactions on Visualization and Computer Graphics</em> 23 (1): 611–20.</p>
@@ -124,7 +192,7 @@
           </div>
         </div>
       </div>
-<a href="multi-criteria-decision-analysis.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="use-cases.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>

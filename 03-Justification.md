@@ -1,0 +1,25 @@
+# Justification
+
+## Clinical Equipoise
+In randomized controlled trials, there is a well-established concept that can be invoked to justify  research burdens to be accepted by human participants: "clinical equipoise" [@Freedman1987Equipoise].
+
+In early phases, however, information is in general sparse and uncertainty about key dimensions is abundant. Since clinical equipoise is not simply the [absence of evidence](https://en.wikipedia.org/wiki/Evidence_of_absence), the belief in the equivalence of interventions (equipoise) needs to be established by positive evidence. Early cinical development serves as bases to provide this kind of evidential support for clinical equipoise in later RCTs, but cannot at the same time function as the justifcation for early cinical development itself ([circularity](https://en.wikipedia.org/wiki/Circular_reasoning)).
+
+
+![Black Panther, 2018, Marvel Studios](https://media.giphy.com/media/1SwSneBv946CZVYaNm/giphy.gif){width=350px}
+
+## Positive predictive value
+Some might think that the purpose of preclinical animal experiments is to provide some kind of pre-study odds to inform later clinical testing of investigational products.
+
+## Apllications
+[FDA](https://open.fda.gov/apis/openfda-fields/)
+
+## Stakeholder Engangement
+
+[EMA](https://www.youtube.com/watch?v=XY9g5IwI5Cc)
+[Framework](https://www.youtube.com/watch?v=iqLfHZodSWg)
+
+## Epistemic complications
+To understand the complexity of clinical development gives rise to a [garden of forking paths](https://www.youtube.com/watch?v=Yzdqy7WR3Fg).
+
+![Garden of a forking path: Please always refer directly to the [original source](https://mucollective.northwestern.edu/files/2019-AnalysisPathsResearchSynthesis-CHI.pdf) [@alex2019decision].](https://mucollective.northwestern.edu/wp-content/uploads/2019/01/gfp-image.png)

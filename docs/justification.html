@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 Justification | Translational Research as a learning system</title>
   <meta name="description" content="Test. Learn. Repeat." />
-  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.15 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Justification | Translational Research as a learning system" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Merlin Bittlinger" />
 
 
-<meta name="date" content="2019-11-22" />
+<meta name="date" content="2019-11-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -40,6 +40,7 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -47,13 +48,16 @@
 
 
 
-<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+
+
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
 <script src="libs/plotly-binding-4.9.1/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
 <link href="libs/plotly-htmlwidgets-css-1.49.4/plotly-htmlwidgets.css" rel="stylesheet" />
 <script src="libs/plotly-main-1.49.4/plotly-latest.min.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <script async defer src="https://hypothes.is/embed.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -93,6 +97,7 @@
 <li class="chapter" data-level="3.2" data-path="justification.html"><a href="justification.html#positive-predictive-value"><i class="fa fa-check"></i><b>3.2</b> Positive predictive value</a></li>
 <li class="chapter" data-level="3.3" data-path="justification.html"><a href="justification.html#apllications"><i class="fa fa-check"></i><b>3.3</b> Apllications</a></li>
 <li class="chapter" data-level="3.4" data-path="justification.html"><a href="justification.html#stakeholder-engangement"><i class="fa fa-check"></i><b>3.4</b> Stakeholder Engangement</a></li>
+<li class="chapter" data-level="3.5" data-path="justification.html"><a href="justification.html#epistemic-complications"><i class="fa fa-check"></i><b>3.5</b> Epistemic complications</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="multi-criteria-decision-analysis.html"><a href="multi-criteria-decision-analysis.html"><i class="fa fa-check"></i><b>4</b> Multi-Criteria Decision Analysis</a></li>
 <li class="chapter" data-level="5" data-path="learning.html"><a href="learning.html"><i class="fa fa-check"></i><b>5</b> Learning</a><ul>
@@ -103,17 +108,23 @@
 </ul></li>
 <li class="chapter" data-level="6" data-path="pharmacovigiliance.html"><a href="pharmacovigiliance.html"><i class="fa fa-check"></i><b>6</b> Pharmacovigiliance</a><ul>
 <li class="chapter" data-level="6.1" data-path="pharmacovigiliance.html"><a href="pharmacovigiliance.html#openfda"><i class="fa fa-check"></i><b>6.1</b> OpenFDA</a></li>
-<li class="chapter" data-level="6.2" data-path="pharmacovigiliance.html"><a href="pharmacovigiliance.html#pharmacovigiliance-1"><i class="fa fa-check"></i><b>6.2</b> Pharmacovigiliance</a></li>
-<li class="chapter" data-level="6.3" data-path="pharmacovigiliance.html"><a href="pharmacovigiliance.html#quetiapine"><i class="fa fa-check"></i><b>6.3</b> Quetiapine</a><ul>
-<li class="chapter" data-level="6.3.1" data-path="pharmacovigiliance.html"><a href="pharmacovigiliance.html#data-cleaning"><i class="fa fa-check"></i><b>6.3.1</b> Data cleaning</a></li>
-<li class="chapter" data-level="6.3.2" data-path="pharmacovigiliance.html"><a href="pharmacovigiliance.html#further-readings"><i class="fa fa-check"></i><b>6.3.2</b> Further readings</a></li>
-<li class="chapter" data-level="6.3.3" data-path="pharmacovigiliance.html"><a href="pharmacovigiliance.html#further-readings-1"><i class="fa fa-check"></i><b>6.3.3</b> Further readings</a></li>
+<li class="chapter" data-level="6.2" data-path="pharmacovigiliance.html"><a href="pharmacovigiliance.html#pharmacovigiliance-1"><i class="fa fa-check"></i><b>6.2</b> Pharmacovigiliance</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="pharmacovigiliance.html"><a href="pharmacovigiliance.html#data-cleaning"><i class="fa fa-check"></i><b>6.2.1</b> Data cleaning</a></li>
+<li class="chapter" data-level="6.2.2" data-path="pharmacovigiliance.html"><a href="pharmacovigiliance.html#further-readings"><i class="fa fa-check"></i><b>6.2.2</b> Further readings</a></li>
+<li class="chapter" data-level="6.2.3" data-path="pharmacovigiliance.html"><a href="pharmacovigiliance.html#further-readings-1"><i class="fa fa-check"></i><b>6.2.3</b> Further readings</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="use-cases.html"><a href="use-cases.html"><i class="fa fa-check"></i><b>7</b> Use cases</a><ul>
-<li class="chapter" data-level="7.1" data-path="use-cases.html"><a href="use-cases.html#quetiapine-1"><i class="fa fa-check"></i><b>7.1</b> Quetiapine</a></li>
+<li class="chapter" data-level="7.1" data-path="use-cases.html"><a href="use-cases.html#quetiapine"><i class="fa fa-check"></i><b>7.1</b> Quetiapine</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="use-cases.html"><a href="use-cases.html#adverse-events-quetiapine"><i class="fa fa-check"></i><b>7.1.1</b> Adverse events: Quetiapine</a></li>
+<li class="chapter" data-level="7.1.2" data-path="use-cases.html"><a href="use-cases.html#clinical-trials-quetiapine"><i class="fa fa-check"></i><b>7.1.2</b> Clinical Trials: Quetiapine</a></li>
+<li class="chapter" data-level="7.1.3" data-path="use-cases.html"><a href="use-cases.html#pubmed-search-quetiapine"><i class="fa fa-check"></i><b>7.1.3</b> Pubmed search: Quetiapine</a></li>
+</ul></li>
 <li class="chapter" data-level="7.2" data-path="use-cases.html"><a href="use-cases.html#enasidenib"><i class="fa fa-check"></i><b>7.2</b> Enasidenib</a></li>
-<li class="chapter" data-level="7.3" data-path="use-cases.html"><a href="use-cases.html#deep-brain-stimulation"><i class="fa fa-check"></i><b>7.3</b> Deep Brain Stimulation</a></li>
+<li class="chapter" data-level="7.3" data-path="use-cases.html"><a href="use-cases.html#deep-brain-stimulation"><i class="fa fa-check"></i><b>7.3</b> Deep Brain Stimulation</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="use-cases.html"><a href="use-cases.html#clinical-trials-dbs"><i class="fa fa-check"></i><b>7.3.1</b> Clinical Trials: DBS</a></li>
+<li class="chapter" data-level="7.3.2" data-path="use-cases.html"><a href="use-cases.html#pubmed-search-dbs"><i class="fa fa-check"></i><b>7.3.2</b> Pubmed search: DBS</a></li>
+</ul></li>
 <li class="chapter" data-level="7.4" data-path="use-cases.html"><a href="use-cases.html#somatic-genome-editing"><i class="fa fa-check"></i><b>7.4</b> Somatic genome-editing</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -141,7 +152,7 @@
 <h1><span class="header-section-number">Chapter 3</span> Justification</h1>
 <div id="clinical-equipoise" class="section level2">
 <h2><span class="header-section-number">3.1</span> Clinical Equipoise</h2>
-<p>In randomized controlled trials, there is a well-established concept that can be invoked to justify research burdens to be accepted by human participants: “clinical equipoise” <span class="citation">(Freedman <a href="#ref-Freedman1987Equipoise">1987</a>)</span>.</p>
+<p>In randomized controlled trials, there is a well-established concept that can be invoked to justify research burdens to be accepted by human participants: “clinical equipoise” <span class="citation">(Freedman <a href="#ref-Freedman1987Equipoise" role="doc-biblioref">1987</a>)</span>.</p>
 <p>In early phases, however, information is in general sparse and uncertainty about key dimensions is abundant. Since clinical equipoise is not simply the <a href="https://en.wikipedia.org/wiki/Evidence_of_absence">absence of evidence</a>, the belief in the equivalence of interventions (equipoise) needs to be established by positive evidence. Early cinical development serves as bases to provide this kind of evidential support for clinical equipoise in later RCTs, but cannot at the same time function as the justifcation for early cinical development itself (<a href="https://en.wikipedia.org/wiki/Circular_reasoning">circularity</a>).</p>
 <div class="figure">
 <img src="https://media.giphy.com/media/1SwSneBv946CZVYaNm/giphy.gif" alt="Black Panther, 2018, Marvel Studios" width="350" />
@@ -160,6 +171,14 @@
 <h2><span class="header-section-number">3.4</span> Stakeholder Engangement</h2>
 <p><a href="https://www.youtube.com/watch?v=XY9g5IwI5Cc">EMA</a>
 <a href="https://www.youtube.com/watch?v=iqLfHZodSWg">Framework</a></p>
+</div>
+<div id="epistemic-complications" class="section level2">
+<h2><span class="header-section-number">3.5</span> Epistemic complications</h2>
+<p>To understand the complexity of clinical development gives rise to a <a href="https://www.youtube.com/watch?v=Yzdqy7WR3Fg">garden of forking paths</a>.</p>
+<div class="figure">
+<img src="https://mucollective.northwestern.edu/wp-content/uploads/2019/01/gfp-image.png" alt="Garden of a forking path: Please always refer directly to the original source (Kale, Kay, and Hullman 2019)." />
+<p class="caption">Garden of a forking path: Please always refer directly to the <a href="https://mucollective.northwestern.edu/files/2019-AnalysisPathsResearchSynthesis-CHI.pdf">original source</a> <span class="citation">(Kale, Kay, and Hullman <a href="#ref-alex2019decision" role="doc-biblioref">2019</a>)</span>.</p>
+</div>
 
 </div>
 </div>
@@ -167,6 +186,9 @@
 <div id="refs" class="references">
 <div id="ref-Freedman1987Equipoise">
 <p>Freedman, B. 1987. “Equipoise and the Ethics of Clinical Research.” <em>The New England Journal of Medicine</em> 317 (3): 141—145. <a href="https://doi.org/10.1056/nejm198707163170304">https://doi.org/10.1056/nejm198707163170304</a>.</p>
+</div>
+<div id="ref-alex2019decision">
+<p>Kale, Alex, Matthew Kay, and Jessica Hullman. 2019. “Decision-Making Under Uncertainty in Research Synthesis: Designing for the Garden of Forking Paths.” In <em>Proceedings of the 2019 Chi Conference on Human Factors in Computing Systems</em>. ACM.</p>
 </div>
 </div>
 <div class = rmdreview>
@@ -183,24 +205,25 @@
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": true,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": true,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "twitter", "linkedin"]
+"all": ["facebook", "twitter", "linkedin"],
+"github": true
 },
 "fontsettings": {
 "theme": "white",

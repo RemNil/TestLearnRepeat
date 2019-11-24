@@ -15,9 +15,9 @@ header-includes:
 ---
 
 # Preface {-}
-Translational Research is a highly competitive and goal-oriented field. [Metrics](https://en.wikipedia.org/wiki/Performance_indicator) to evaluate "translational success", such as [time-to-market](https://en.wikipedia.org/wiki/Time_to_market), [Likelihood of Approval](https://www.nature.com/articles/nbt.2786) [@hay2014clinical] or [Probability of Success](https://academic.oup.com/biostatistics/article/20/2/273/4817524) [@wong2019estimation]  provide  [incentive structures](https://en.wikipedia.org/wiki/Incentive) that function as the rules of the game. As such, the choice of metric determines what learning goal may or may not be achieved by optimizing the "success" rate of Translational Research. 
+Translational Research is a highly competitive and goal-oriented field. [Metrics](https://en.wikipedia.org/wiki/Performance_indicator) to evaluate "translational success", such as [Time-To-Market](https://en.wikipedia.org/wiki/Time_to_market), [Likelihood of Approval](https://www.nature.com/articles/nbt.2786) [@hay2014clinical] or [Probability of Success](https://academic.oup.com/biostatistics/article/20/2/273/4817524) [@wong2019estimation]  provide  [incentive structures](https://en.wikipedia.org/wiki/Incentive) that function as the rules of the game. As such, the choice of metric determines what learning goal may or may not be achieved by optimizing the "success" rate of Translational Research. 
 
-While economic perspectives are important to understand Translational Research, they are limited in many respects. Clinical development is different from other business models as it critically depends on voluntary or even [altruistic](https://onlinelibrary.wiley.com/doi/abs/10.1353/hcr.0.0164) [@jansen2009ethics] research participation and hence on [public trust](https://academic.oup.com/bjps/advance-article-abstract/doi/10.1093/bjps/axz023/5524669?redirectedFrom=fulltext). *"Information gain per unit of accepted research burdens"* is a [patient-oriented](https://en.wikipedia.org/wiki/Patient-centered_outcomes) concept [introduced](https://www.youtube.com/watch?v=5ECTE0gbwFU=0m52s) to further think about how the current [regulatory oversight](https://www.ich.org/) system learns from past [clinical R&D efforts](https://www.ema.europa.eu/en/human-regulatory/research-development). This may serve as a starting point to think about [Translational Research](https://en.wikipedia.org/wiki/Translational_research) as a [Learning System](https://remnil.github.io/TestLearnRepeat/learning.html) (work in progress). 
+While economic perspectives on success metrics are important to understand Translational Research, they are limited in many respects. Clinical development is different from other business models as it critically depends on voluntary or even [altruistic](https://onlinelibrary.wiley.com/doi/abs/10.1353/hcr.0.0164) [@jansen2009ethics] research participation and hence on [public trust](https://academic.oup.com/bjps/advance-article-abstract/doi/10.1093/bjps/axz023/5524669?redirectedFrom=fulltext). *"Information gain per unit of accepted research burdens"* is a [patient-oriented](https://en.wikipedia.org/wiki/Patient-centered_outcomes) concept [introduced](https://www.youtube.com/watch?v=5ECTE0gbwFU=0m52s) to further think about how the current [regulatory oversight](https://www.ich.org/) system learns from past [clinical R&D efforts](https://www.ema.europa.eu/en/documents/other/laboratory-patient-journey-centrally-authorised-medicine_en.pdf). This may serve as a starting point to think about [Translational Research](https://en.wikipedia.org/wiki/Translational_research) as a [Learning System](https://remnil.github.io/TestLearnRepeat/learning.html) (work in progress). 
 
 ![](https://media.giphy.com/media/4TgrpouKssdiNzeax5/giphy.gif){style="float: right; top: 0; right: 0; width: 20%;"}
 
@@ -27,3 +27,40 @@ The conceptualization of the [scientific](https://www.ncbi.nlm.nih.gov/books/NBK
 On this page, I summarize some of my readings in an unsystematic and eclectic way. The aim is not necessarily to say something entirely new or original, but perhaps someone who finds the way to this place will also find a value in the information discussed.
 
 [Open peer-review](http://www.openreviewtoolkit.org/) is enabled using [hypothes.is](https://web.hypothes.is/). This facilitates sentence-by-sentence annotation from readers directly on this page. Please feel free to annotate. Both constructive and destructive criticism is [highly welcome](http://www.youtube.com/watch?v=ztmvtKLuR7I&t=10m48s).
+
+
+```{r Set-up R session, eval=TRUE, include=TRUE, results=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+# rm(list=ls())
+
+# Install devtools package if necessary
+if(!"devtools" %in% rownames(installed.packages())) install.packages("devtools")
+
+ipak <- function(pkg){
+  new.pkg <- pkg[!(pkg %in% installed.packages()[, "Package"])]
+  if (length(new.pkg)) 
+    install.packages(new.pkg, dependencies = TRUE)
+  sapply(pkg, require, character.only = TRUE)
+}
+
+pkgs = c("rclinicaltrials", "ggplot2", "plotly", "ggplotify", "rentrez",
+         "tidytext", "reshape2", "bibliometrix",
+         "RISmed", "ggthemes", "tibble", "httr", 
+         "RCurl","data.table", "dplyr")
+ipak(pkgs)
+
+rsession <- sessionInfo()
+
+# 
+# library(httr)
+# set_config(
+#    use_proxy(url="http://proxy.charite.de", port=8080, username="bittlinm", password="hthUVd7qd6sck!")
+# )
+
+# # if run for the first time:
+# 
+# library(devtools)
+# install_github("titaniumtroop/rclinicaltrials")
+# devtools::install_github("ropenhealth/openfda")
+
+```
+
