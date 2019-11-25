@@ -19,7 +19,7 @@ Translational Research is a highly competitive and goal-oriented field. [Metrics
 
 While economic perspectives on success metrics are important to understand Translational Research, they are limited in many respects. Clinical development is different from other business models as it critically depends on voluntary or even [altruistic](https://onlinelibrary.wiley.com/doi/abs/10.1353/hcr.0.0164) [@jansen2009ethics] research participation and hence on [public trust](https://academic.oup.com/bjps/advance-article-abstract/doi/10.1093/bjps/axz023/5524669?redirectedFrom=fulltext). *"Information gain per unit of accepted research burdens"* is a [patient-oriented](https://en.wikipedia.org/wiki/Patient-centered_outcomes) concept [introduced](https://www.youtube.com/watch?v=5ECTE0gbwFU=0m52s) to further think about how the current [regulatory oversight](https://www.ich.org/) system learns from past [clinical R&D efforts](https://www.ema.europa.eu/en/documents/other/laboratory-patient-journey-centrally-authorised-medicine_en.pdf). This may serve as a starting point to think about [Translational Research](https://en.wikipedia.org/wiki/Translational_research) as a [Learning System](https://remnil.github.io/TestLearnRepeat/learning.html) (work in progress). 
 
-![](https://media.giphy.com/media/4TgrpouKssdiNzeax5/giphy.gif){style="float: right; top: 0; right: 0; width: 20%;"}
+![](https://media.giphy.com/media/4TgrpouKssdiNzeax5/giphy.gif){style="float: right; top: 0; right: 0; width: 25%; padding: 5px;"}
 
 The conceptualization of the [scientific](https://www.ncbi.nlm.nih.gov/books/NBK92015/), [institutional](https://www.youtube.com/watch?v=U_6ear-yORE) and economic structure of [Translational Research](https://en.wikipedia.org/wiki/Translational_research) needs to satisfy [complex constraints](https://sistemas.colmex.mx/Reportes/LACEALAMES/LACEA-LAMES2019_paper_106.pdf) and is challenging to fully grasp. [Research ethics](https://cioms.ch/shop/product/international-ethical-guidelines-for-health-related-research-involving-humans/) is often focused on particular research such as an individual clinical study. In recent times, there is increasing interest in meta-research perspectives to foster ethical organization and oversight of clinical development. 
 
@@ -42,7 +42,8 @@ ipak <- function(pkg){
   sapply(pkg, require, character.only = TRUE)
 }
 
-pkgs = c("rclinicaltrials", "ggplot2", "plotly", "ggplotify", "rentrez",
+pkgs = c("rclinicaltrials", "ggplot2", "plotly", 
+         "rentrez", "ggplotify", 
          "tidytext", "reshape2", "bibliometrix",
          "RISmed", "ggthemes", "tibble", "httr", 
          "RCurl","data.table", "dplyr")

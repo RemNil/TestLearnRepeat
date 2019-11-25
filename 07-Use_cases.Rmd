@@ -10,7 +10,7 @@
 FDA Adverse Event Reporting System ([FAERS](https://open.fda.gov/data/faers/)). [Here](https://open.fda.gov/apis/drug/event/) is quick explanation:
 `r p.2` To better understand what this data means, we need to really dig into the openFDA API.
 
-
+`r Pubmed.DBS <- readRDS("Pubmed.DBS_2019-11-24.rds"); Pubmed.DBS`
 `r pilot_results_by_year`
 
 

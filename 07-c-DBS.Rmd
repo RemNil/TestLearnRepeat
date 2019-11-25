@@ -1,4 +1,21 @@
 ### Clinical Trials: DBS
+```{r}
+
+# https://www.bmj.com/content/361/bmj.k1452/article-info
+# clinicaltrials_count(query = c('deep brain stimulation'))
+# 
+# NCT.DBS.data <- clinicaltrials_download(query = c('deep brain stimulation'), 
+#                                         count = NULL, 
+#                                         include_results = TRUE,
+#                                         include_textblocks	= TRUE)
+# 
+# 
+# NCT.DBS.data$study_information$study_info$official_title
+
+# https://distill.pub/2016/misread-tsne/
+
+# vignette("basics", "rclinicaltrials")
+```
 
 ```{r eval=TRUE, include=TRUE, results=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE }
 # install.packages("devtools")
@@ -59,7 +76,8 @@
 ### Pubmed search: DBS
 
 ```{r eval=FALSE, include=FALSE, results=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
-search_topic <- c('(" "deep+brain+stimulation"[All Fields])')
+source("pubmed2df.R")
+search_topic <- c('("deep brain stimulation"[MeSH Terms] OR ("deep"[All Fields] AND "brain"[All Fields] AND "stimulation"[All Fields]) OR "deep brain stimulation"[All Fields]")')
 
 # narrow a search query and indicate available data for querying criteria:
 search_query <- EUtilsSummary(search_topic, 
@@ -67,7 +85,7 @@ search_query <- EUtilsSummary(search_topic,
                               encoding="utf-8",
                               #mindate=2014, 
                               #maxdate=2014,
-                              retmax=5050)
+                              retmax=15000)
 
 # see what the search_query holds:
 summary(search_query)
@@ -75,120 +93,38 @@ summary(search_query)
 # fetch for the actual data:
 D <- EUtilsGet(search_query)
 
-res<-data.frame(cbind(PMID(D),
-                      YearEpublish(D),
-                      unlist(lapply(Author(D),function(a){paste(paste(a$LastName,a$Initials,sep=" "),collapse=";")})), #Author(D),  
-                      ISSN(D),                
-                      Title(D),
-                      ArticleTitle(D),
-                      ELocationID(D),
-                      AbstractText(D),
-                      Affiliation(D),
-                      Language(D),
-                      unlist(lapply(PublicationType(D),function(a){paste(a,collapse =";")})),
-                      MedlineTA(D),
-                      NlmUniqueID(D),
-                      ISSNLinking(D),
-                      PublicationStatus(D),
-                      ArticleId(D),
-                      Issue(D),
-                      ISOAbbreviation(D),
-                      MedlinePgn(D),
-                      CopyrightInformation(D),
-                      Country(D),
-                      GrantID(D),
-                      Acronym(D),
-                      Agency(D),
-                      RegistryNumber(D),
-                      RefSource(D),
-                      CollectiveName(D),
-                      unlist(lapply(Mesh(D),function(a){if (is.data.frame(a)){a=paste(a$Heading,collapse =";")}else{a='NA'}}))))
+df_Dbs <- pubmed2df(D)
+saveRDS(D, paste0("DBS_D_", Sys.Date(), sep=".","rds"))
+saveRDS(df_Dbs, paste0("df_Dbs_", Sys.Date(), sep=".","rds"))
+saveRDS(Pubmed.DBS, paste0("Pubmed.DBS_", Sys.Date(), sep=".","rds"))
 
-res <-as.data.frame(res)
-colnames(res)<-c("PMID",
-                 "YEAR",
-                 "AUTHORS",
-                 "ISSN",
-                 "JOURNAL",
-                 "TITLE",
-                 "DOI",
-                 "ABSTRACT",
-                 "Affiliation",
-                 "Language",
-                 "PublicationType",
-                 "MedlineTA",
-                 "NlmUniqueID",
-                 "ISSNLinking",
-                 "PublicationStatus",
-                 "ArticleId",
-                 "Issue",
-                 "ISOAbbreviation",
-                 "MedlinePgn",
-                 "CopyrightInformation",
-                 "Country",
-                 "GrantID",
-                 "Acronym",
-                 "Agency",
-                 "RegistryNumber",
-                 "RefSource",
-                 "CollectiveName",
-                 "Mesh")
-
-rownames(res)<-res$PMID
-
-
-DATA <- data.frame(lapply(res, toupper),
-                   stringsAsFactors = FALSE)
-DATA$DB = "PUBMED"
-
-resCT <-subset(DATA, grepl(c("Trial"), res$PublicationTyp, ignore.case = FALSE, perl = FALSE,
-      fixed = FALSE, useBytes = FALSE)==TRUE)
-
-DATA.CT <- data.frame(lapply(resCT, toupper),
-                   stringsAsFactors = FALSE)
-
-Mesh <-  lapply(resCT$Mesh, function(a){unlist(strsplit(a, split = ";"))})
-
-
-#M <- pubmed2df(D)
-#M <- convert2df(D, dbsource = "pubmed", format = "plaintext")
-
-
-# https://cran.r-project.org/web/packages/RISmed/RISmed.pdf
-# AU		 Authors
-# TI		 Document Title
-# SO		 Publication Name (or Source)
-# JI		 ISO Source Abbreviation
-# DT		 Document Type
-# DE		 Authors' Keywords
-# ID		 Keywords associated by SCOPUS or WoS database
-# AB		 Abstract
-# C1		 Author Address
-# RP		 Reprint Address
-# CR		 Cited References
-# TC		 Times Cited
-# PY		 Year
-# SC		 Subject Category
-# UT		 Unique Article Identifier
-# DB		 Database
-
-
-saveRDS(DATA.CT, paste0("DATA.CT_", Sys.Date(), sep=".","RData"))
-
-saveRDS(res, paste0("DBS_res_", Sys.Date(), sep=".","RData"))
-saveRDS(D, paste0("DBS_D_", Sys.Date(), sep=".","RData"))
 ```
 
 
-```{r}
+```{r eval=FALSE, include=FALSE, results=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 library("kableExtra")
-DT.CT<- readRDS("DATA.CT_2019-11-24.Rdata")
+DBS.df <- readRDS("df_Dbs_2019-11-24.Rdata")
 
-DT.CT %>%
-  DT::datatable(
-    extensions = 'Buttons', 
-    options = list(dom = 'Bfrtip', 
-                   buttons = c('excel', "csv")))
+Pubmed.DBS <- kable(DBS.df[,2:11], "html") %>% 
+  kable_styling(bootstrap_options = c("striped","hover", "condensed", "responsive"),
+                font_size = 10,
+                full_width = F,
+                position="float_left") %>% 
+  column_spec(8, background = "lightblue") %>% 
+  column_spec(8, width = "15px")  %>% 
+  scroll_box(width = "650px", height = "340px")
+```
+
+
+```{r eval=TRUE, include=TRUE, results=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+
+# Pubmed.DBS <- DT::datatable(head(DT.CT),
+#                             filter = 'top',
+#                             extensions = 'Buttons', 
+#                             options = list(dom = 'Bfrtip', searchHighlight = TRUE,
+#                                            buttons = c('excel', "csv")))
+
+
 # Pubmed.DBS <- kable(res) %>%
 #   kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = T, font_size = 7) %>%
 #   scroll_box(width = "550px", height = "400px")
@@ -201,6 +137,8 @@ DT.CT %>%
 D <- readRDS("DBS_D_2019-11-24.Rdata")
 
 library("ggplot2")
+library("ggplotify")
+
 y <- YearPubmed(D); r <- YearReceived(D)
 
 date(); count<-table(y)
@@ -224,6 +162,15 @@ pilot_DBS_by_year <- ggplotly(q)
 #htmlwidgets::saveWidget(pilot_results_by_year, "pilot_results_by_year.html")
 ```
 
+
+### Rgulatory pathways
+```{r}
+
+
+```
+
+[DBS globus pallidus](https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpma/pma.cfm?id=P960009S229)
+- Humanitarian Device Exemption (HDE)
 
 ```{r}
 pubType <- unlist(PublicationType(D))

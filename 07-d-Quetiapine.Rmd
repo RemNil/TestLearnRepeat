@@ -66,59 +66,41 @@ EudraVigilance.df[['Percent']] <- Percent
 
 ### Clinical Trials: Quetiapine
 
-```{r eval=TRUE, include=TRUE, results=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE }
-# install.packages("devtools")
-# library(devtools)
-# install_github("titaniumtroop/rclinicaltrials")
+```{r}
+library("rclinicaltrials")
+library("data.table")
+library("kableExtra")
+# browseURL(advanced_search_terms["cond", "help"])
+# registerd.Quetiapine.trials <- clinicaltrials_search(query = 'Quetiapine')
 
-# library(rclinicaltrials)
-# z <- clinicaltrials_search(query = 'deep brain stimulation')
-# str(z)
+registerd.Seroquel.trials <- clinicaltrials_search(query = c("Quetiapine OR Seroquel"),
+                                              count = NULL)
 
-# install.packages("RPostgreSQL")
-# library(RPostgreSQL)
-# drv <- dbDriver('PostgreSQL')
-# con <- dbConnect(drv,
-#                  dbname="aact",
-#                  host="aact-db.ctti-clinicaltrials.org",
-#                  port=5432,
-#                  user="remnil",
-#                  password="hthUV4Ut!")
-# 
-# aact_sample <- dbGetQuery(conn=con,
-#                           statement='deep+brain+stimulation')
-# write.csv(aact_sample, file='aact_sample.csv')
-# print(aact_sample)
+Condition <- unlist(registerd.Seroquel.trials$condition_summary)
+Intervention <- unlist(registerd.Seroquel.trials$intervention_summary)
+NCT.ID <- unlist(registerd.Seroquel.trials$nct_id)
 
-# get result set
-```
+NCT.table <- data.table(NCT.ID, 
+                        Condition, 
+                        Intervention)
+
+# we also need a field "doc_id"
+NCT.table$No <- seq.int(nrow(NCT.table))
+
+NCT <- kable(NCT.table) %>%
+       kable_styling("striped", full_width = F) %>%
+       column_spec(c(2,3), bold = F, color = "black", background = "white") %>%
+       column_spec(c(1), bold = F, color = "white", background = "gray") %>%
+       row_spec(0, bold = F, color = "white", background = "#2780e3")
+
+NCT
 
 
-```{r eval=FALSE, include=FALSE, results=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE }
-# install.packages("devtools")
-# library(devtools)
-# install_github("titaniumtroop/rclinicaltrials")
+saveRDS(NCT, paste0("NCT_quetiapine_", Sys.Date(), sep=".","rds"))
 
-# library(rclinicaltrials)
-# z <- clinicaltrials_search(query = 'deep brain stimulation')
-# str(z)
+# https://distill.pub/2016/misread-tsne/
 
-# install.packages("RPostgreSQL")
-# library(RPostgreSQL)
-# drv <- dbDriver('PostgreSQL')
-# con <- dbConnect(drv,
-#                  dbname="aact",
-#                  host="aact-db.ctti-clinicaltrials.org",
-#                  port=5432,
-#                  user="remnil",
-#                  password="hthUV4Ut!")
-# 
-# aact_sample <- dbGetQuery(conn=con,
-#                           statement='deep+brain+stimulation')
-# write.csv(aact_sample, file='aact_sample.csv')
-# print(aact_sample)
-
-# get result set
+# vignette("basics", "rclinicaltrials")
 ```
 
 
@@ -141,13 +123,13 @@ summary(search_query)
 # fetch for the actual data:
 D <- EUtilsGet(search_query)
 
-saveRDS(D, paste0("Quietiapine_D_", Sys.Date(), sep=".","RData"))
+saveRDS(D, paste0("Quietiapine_D_", Sys.Date(), sep=".","rds"))
 ```
 
 
 ```{r eval=TRUE, include=TRUE, results=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 library("RISmed")
-D <- readRDS("Quietiapine_D_2019-11-24.Rdata")
+D <- readRDS("Quietiapine_D_2019-11-24.rds")
 y <- YearPubmed(D); r <- YearReceived(D)
 
 date(); count<-table(y)
