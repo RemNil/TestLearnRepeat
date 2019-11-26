@@ -107,6 +107,7 @@ saveRDS(NCT, paste0("NCT_quetiapine_", Sys.Date(), sep=".","rds"))
 ### Pubmed search: Quetiapine
 
 ```{r eval=FALSE, include=FALSE, results=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+library("RISmed")
 search_topic <- c('("quetiapine fumarate"[MeSH Terms] OR ("quetiapine"[All Fields] AND "fumarate"[All Fields]) OR "quetiapine fumarate"[All Fields] OR "seroquel"[All Fields]) OR ("quetiapine fumarate"[MeSH Terms] OR ("quetiapine"[All Fields] AND "fumarate"[All Fields]) OR "quetiapine fumarate"[All Fields] OR "quetiapine"[All Fields])')
 
 # narrow a search query and indicate available data for querying criteria:
@@ -129,7 +130,7 @@ saveRDS(D, paste0("Quietiapine_D_", Sys.Date(), sep=".","rds"))
 
 ```{r eval=TRUE, include=TRUE, results=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 library("RISmed")
-D <- readRDS("Quietiapine_D_2019-11-24.rds")
+D <- readRDS("Quietiapine_D_2019-11-25.rds")
 y <- YearPubmed(D); r <- YearReceived(D)
 
 date(); count<-table(y)
