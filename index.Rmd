@@ -24,7 +24,7 @@ While economic perspectives on success metrics are important to understand Trans
 The conceptualization of the [scientific](https://www.ncbi.nlm.nih.gov/books/NBK92015/), [institutional](https://www.youtube.com/watch?v=U_6ear-yORE) and economic structure of [Translational Research](https://en.wikipedia.org/wiki/Translational_research) needs to satisfy [complex constraints](https://sistemas.colmex.mx/Reportes/LACEALAMES/LACEA-LAMES2019_paper_106.pdf) and is challenging to fully grasp. [Research ethics](https://cioms.ch/shop/product/international-ethical-guidelines-for-health-related-research-involving-humans/) is often focused on particular research such as an individual clinical study. In recent times, there is increasing interest in meta-research perspectives to foster ethical organization and oversight of clinical development. 
 
 
-On this page, I summarize some of my readings in an unsystematic and eclectic way. The aim is not necessarily to say something entirely new or original, but perhaps someone who finds the way to this place will also find a value in the information discussed.
+On this page, I summarize some of my readings in an unsystematic and eclectic way. The aim is not necessarily to say something entirely new or original, but perhaps someone who finds the way to this place will also find a value in the information discussed here.
 
 [Open peer-review](http://www.openreviewtoolkit.org/) is enabled using [hypothes.is](https://web.hypothes.is/). This facilitates sentence-by-sentence annotation from readers directly on this page. Please feel free to annotate. Both constructive and destructive criticism is [highly welcome](http://www.youtube.com/watch?v=ztmvtKLuR7I&t=10m48s).
 
