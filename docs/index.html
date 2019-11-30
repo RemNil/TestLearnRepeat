@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Translational Research as a learning system</title>
   <meta name="description" content="Test. Learn. Repeat." />
-  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.15 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Translational Research as a learning system" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Merlin Bittlinger" />
 
 
-<meta name="date" content="2019-11-26" />
+<meta name="date" content="2019-11-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -40,6 +40,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -53,7 +56,7 @@
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA0711', 'auto');
+  ga('create', 'UA-07110711-0', 'auto');
   ga('send', 'pageview');
 </script>
 
@@ -99,12 +102,12 @@
 <div id="header">
 <h1 class="title">Translational Research as a learning system</h1>
 <p class="author"><em>Merlin Bittlinger</em></p>
-<p class="date"><em>2019-11-26</em></p>
+<p class="date"><em>2019-11-30</em></p>
 </div>
 <div id="preface" class="section level1 unnumbered">
 <h1>Preface</h1>
-<p>Translational Research is a highly competitive and goal-oriented field. <a href="https://en.wikipedia.org/wiki/Performance_indicator">Metrics</a> to evaluate “translational success”, such as <a href="https://en.wikipedia.org/wiki/Time_to_market">Time-To-Market</a>, <a href="https://www.nature.com/articles/nbt.2786">Likelihood of Approval</a> <span class="citation">(Hay et al. <a href="#ref-hay2014clinical">2014</a>)</span> or <a href="https://academic.oup.com/biostatistics/article/20/2/273/4817524">Probability of Success</a> <span class="citation">(Wong, Siah, and Lo <a href="#ref-wong2019estimation">2019</a>)</span> provide <a href="https://en.wikipedia.org/wiki/Incentive">incentive structures</a> that function as the rules of the game. As such, the choice of metric determines what learning goal may or may not be achieved by optimizing the “success” rate of Translational Research.</p>
-<p>While economic perspectives on success metrics are important to understand Translational Research, they are limited in many respects. Clinical development is different from other business models as it critically depends on voluntary or even <a href="https://onlinelibrary.wiley.com/doi/abs/10.1353/hcr.0.0164">altruistic</a> <span class="citation">(Jansen <a href="#ref-jansen2009ethics">2009</a>)</span> research participation and hence on <a href="https://academic.oup.com/bjps/advance-article-abstract/doi/10.1093/bjps/axz023/5524669?redirectedFrom=fulltext">public trust</a>. <em>“Information gain per unit of accepted research burdens”</em> is a <a href="https://en.wikipedia.org/wiki/Patient-centered_outcomes">patient-oriented</a> concept <a href="https://www.youtube.com/watch?v=5ECTE0gbwFU=0m52s">introduced</a> to further think about how the current <a href="https://www.ich.org/">regulatory oversight</a> system learns from past <a href="https://www.ema.europa.eu/en/documents/other/laboratory-patient-journey-centrally-authorised-medicine_en.pdf">clinical R&amp;D efforts</a>. This may serve as a starting point to think about <a href="https://en.wikipedia.org/wiki/Translational_research">Translational Research</a> as a <a href="https://remnil.github.io/TestLearnRepeat/learning.html">Learning System</a> (work in progress).</p>
+<p>Translational Research is a highly competitive and goal-oriented field. <a href="https://en.wikipedia.org/wiki/Performance_indicator">Metrics</a> to evaluate “translational success”, such as <a href="https://en.wikipedia.org/wiki/Time_to_market">Time-To-Market</a>, <a href="https://www.nature.com/articles/nbt.2786">Likelihood of Approval</a> <span class="citation">(Hay et al. <a href="#ref-hay2014clinical" role="doc-biblioref">2014</a>)</span> or <a href="https://academic.oup.com/biostatistics/article/20/2/273/4817524">Probability of Success</a> <span class="citation">(Wong, Siah, and Lo <a href="#ref-wong2019estimation" role="doc-biblioref">2019</a>)</span> provide <a href="https://en.wikipedia.org/wiki/Incentive">incentive structures</a> that function as the rules of the game. As such, the choice of metric determines what learning goal may or may not be achieved by optimizing the “success” rate of Translational Research.</p>
+<p>While economic perspectives on success metrics are important to understand Translational Research, they are limited in many respects. Clinical development is different from other business models as it critically depends on voluntary or even <a href="https://onlinelibrary.wiley.com/doi/abs/10.1353/hcr.0.0164">altruistic</a> <span class="citation">(Jansen <a href="#ref-jansen2009ethics" role="doc-biblioref">2009</a>)</span> research participation and hence on <a href="https://academic.oup.com/bjps/advance-article-abstract/doi/10.1093/bjps/axz023/5524669?redirectedFrom=fulltext">public trust</a>. <em>“Information gain per unit of accepted research burdens”</em> is a <a href="https://en.wikipedia.org/wiki/Patient-centered_outcomes">patient-oriented</a> concept <a href="https://www.youtube.com/watch?v=5ECTE0gbwFU=0m52s">introduced</a> to further think about how the current <a href="https://www.ich.org/">regulatory oversight</a> system learns from past <a href="https://www.ema.europa.eu/en/documents/other/laboratory-patient-journey-centrally-authorised-medicine_en.pdf">clinical R&amp;D efforts</a>. This may serve as a starting point to think about <a href="https://en.wikipedia.org/wiki/Translational_research">Translational Research</a> as a <a href="https://remnil.github.io/TestLearnRepeat/learning.html">Learning System</a> (work in progress).</p>
 <p><img src="https://media.giphy.com/media/4TgrpouKssdiNzeax5/giphy.gif" style="float: right; top: 0; right: 0; width: 25%; padding: 5px;" /></p>
 <p>The conceptualization of the <a href="https://www.ncbi.nlm.nih.gov/books/NBK92015/">scientific</a>, <a href="https://www.youtube.com/watch?v=U_6ear-yORE">institutional</a> and economic structure of <a href="https://en.wikipedia.org/wiki/Translational_research">Translational Research</a> needs to satisfy <a href="https://sistemas.colmex.mx/Reportes/LACEALAMES/LACEA-LAMES2019_paper_106.pdf">complex constraints</a> and is challenging to fully grasp. <a href="https://cioms.ch/shop/product/international-ethical-guidelines-for-health-related-research-involving-humans/">Research ethics</a> is often focused on particular research such as an individual clinical study. In recent times, there is increasing interest in meta-research perspectives to foster ethical organization and oversight of clinical development.</p>
 <p>On this page, I summarize some of my readings in an unsystematic and eclectic way. The aim is not necessarily to say something entirely new or original, but perhaps someone who finds the way to this place will also find a value in the information discussed here.</p>
@@ -148,24 +151,25 @@
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": true,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": true,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "twitter", "linkedin"]
+"all": ["facebook", "twitter", "linkedin"],
+"github": true
 },
 "fontsettings": {
 "theme": "white",
