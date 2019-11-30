@@ -9,6 +9,7 @@ link-citations: yes
 bibliography: book.bib
 site: bookdown::bookdown_site
 biblio-style: apalike
+split_bib: no
 url: https://remnil.github.io/
 header-includes:
   \usepackage{float}
