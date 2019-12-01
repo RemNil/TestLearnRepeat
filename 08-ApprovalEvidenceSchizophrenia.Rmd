@@ -90,7 +90,7 @@ p <- freq.tab[order(freq.tab[2], decreasing = TRUE),][1:50,] %>%
   plot_ly(labels = ~`Therapeutic area` , values = ~`Number of approvals`) %>%
   #plot_ly(labels = ~indication , values = ~freq) %>%
   add_pie(hole = 0.4) %>%
-  layout(title = "Top 50 EMA approvals per condition",  showlegend = F,
+  layout(title = paste("Top 50 EMA approvals", "per condition"),  showlegend = F,
          xaxis = list(showgrid = TRUE, zeroline = TRUE, showticklabels = TRUE),
          yaxis = list(showgrid = TRUE, zeroline = TRUE, showticklabels = TRUE))%>%
   layout(autosize = F, width = 600, height = 600, margin = m)
