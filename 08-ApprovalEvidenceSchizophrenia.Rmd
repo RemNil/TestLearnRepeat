@@ -33,21 +33,13 @@ names(epar)[1:2] <- c("year", "indication")
 
 epar$year <- as.numeric(epar$year)
 
-
-
-
-
 # dummify the data
-
 dmy <- dummyVars(" ~ .", data = epar)
 trsf <- data.frame(predict(dmy, newdata = epar))
-
 
 colnames(trsf) <- c("year", substring(colnames(trsf), 11,60)[2:453])
 names(trsf) <- gsub("[.]", " ", names(trsf)) 
 #print(trsf)
-
-
 
 #tibble::enframe(names(trsf)) %>% count(value) %>% filter(n > 1)
 trsf %>%  
@@ -57,9 +49,9 @@ trsf %>%
 
 
 streamgraph(data= na.omit(dat), key="indication", value="n", date="year", 
-            top = 20, right = 10, bottom = 30, left = 20,
+            top = 20, right = 10, bottom = 30, left = 30,
             interactive=TRUE, order=("inside-out"), interpolate = "cardinal-open") %>%
-  sg_axis_x(3, "year", "%Y") %>%
+  sg_axis_x(2, "year", "%Y") %>%
   sg_fill_brewer("YlOrRd")# "OrRd" "Spectral", "RdYlGn", "RdYlBu", "RdGy", "RdBu", "PiYG", "PRGn", "PuOr", "BrBG" "PuOr""
 ```
 In such a Stream Graph [@byron2008stacked], the volume of individual streams is proportional to the values in each category (i.e. number of approvals per year and therapeutic area). This plot is  useful to quickly assess "trends" in approval rate per therapeutic area over time. 
