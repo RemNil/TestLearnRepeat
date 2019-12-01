@@ -17,8 +17,8 @@ bookdown::gitbook:
     edit : null
     download: ["bookdown-start.pdf", "bookdown-start.epub"]
     search: yes
-    split_by: none
-    split_bib: no
+    split_by: chapter
+    split_bib: yes
     fontsettings:
       theme: white
       family: sans

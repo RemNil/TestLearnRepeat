@@ -1,0 +1,180 @@
+# EU Approved medicines 
+How do we figure out how many clinical trials likely failed due to bad methodological [design](https://www.youtube.com/watch?v=hDcedskQy60)? If you have any idea or suggestion, please leave a comment using the annotation function on this website.
+
+```{r eval=TRUE, include=TRUE, results=TRUE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+
+# devtools::install_github("hrbrmstr/streamgraph")
+library(streamgraph)
+# current verison
+# packageVersion("streamgraph")
+require(caret);library(plyr); library(dplyr)
+library(readxl)
+library(plotly)
+require(data.table)
+library(kableExtra)
+
+# epar_list <- read_excel("Medicines_output_european_public_assessment_reports.xlsx", skip = 7)
+# epar_list <- filter(epar_list, epar_list$Category == "Human")
+# year <- as.numeric(substring(epar_list$"Marketing authorisation date", 1,4))
+# name <- epar_list$"Active substance"
+# indication <- epar_list$"Therapeutic area"
+# sponsor <- epar_list$"Marketing authorisation holder/company name"
+# epar.df <- data.frame(year, name, indication, sponsor, stringsAsFactors=FALSE)
+
+# write.csv(epar.df,"epar.csv", row.names = TRUE, sep = ";")
+
+#names(epar)[1] <- "year"
+#epar <- separate_rows(epar, indication, sep=">")
+#names(epar$indication) <- gsub("[.]", " ", names(epar$indication)) 
+#write.csv(epar,"epar.csv", row.names = FALSE, sep = ";")
+
+epar <- read.csv("epar_genus_proximum.csv", sep = ";", stringsAsFactors=FALSE, check.names = FALSE)
+names(epar)[1:2] <- c("year", "indication")
+
+epar$year <- as.numeric(epar$year)
+
+
+
+
+
+# dummify the data
+
+dmy <- dummyVars(" ~ .", data = epar)
+trsf <- data.frame(predict(dmy, newdata = epar))
+
+
+colnames(trsf) <- c("year", substring(colnames(trsf), 11,60)[2:453])
+names(trsf) <- gsub("[.]", " ", names(trsf)) 
+#print(trsf)
+
+
+
+#tibble::enframe(names(trsf)) %>% count(value) %>% filter(n > 1)
+trsf %>%  
+  tidyr::gather(indication, value, -year)  %>% # takes multiple columns and collapses into key-value pairs, 
+  group_by(year, indication) %>%
+  tally(wt=value) -> dat # will count the number of rows.
+
+
+streamgraph(data= na.omit(dat), key="indication", value="n", date="year", 
+            top = 20, right = 10, bottom = 30, left = 20,
+            interactive=TRUE, order=("inside-out"), interpolate = "cardinal-open") %>%
+  sg_axis_x(3, "year", "%Y") %>%
+  sg_fill_brewer("YlOrRd")# "OrRd" "Spectral", "RdYlGn", "RdYlBu", "RdGy", "RdBu", "PiYG", "PRGn", "PuOr", "BrBG" "PuOr""
+```
+In a Stream Graph [@byron2008stacked], the volume of individual streams  is proportional to the values in each category (i.e. number of approvals per year). This plot might be useful to quickly assess "trends" in approval rate per therapeutic area over time. 
+
+For instance, if you hover over the graph, you will quickly discover that there were quite disproportionately many approvals for Arthritis lately. Shown are therapeutic indications mentioned in EPARS [@papathanasiou2016transparency]. Data freeze: 25. November 2019.
+
+
+## Approvals per therapeutic area
+
+If you are more interested in "exact numbers, then here is a donut plot of the same data with a focus on the most active therapeutic areas. Note, however that the "therapeutic areas" are not necessarily on the same level of abstraction in disease ontology. All data comes with absolutely no warranty.
+
+
+```{r eval=TRUE, fig.width=8, fig.height=8, include=TRUE, results=TRUE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+
+freq.tab <- data.frame(plyr::count(epar, 'indication'))
+colnames(freq.tab)  <- c("Therapeutic area", "Number of approvals")
+#kable(freq.tab[order(freq.tab[2], decreasing = TRUE),][1:7,])
+
+p <- freq.tab[order(freq.tab[2], decreasing = TRUE),][1:50,] %>%
+  plot_ly(labels = ~`Therapeutic area` , values = ~`Number of approvals`) %>%
+  #plot_ly(labels = ~indication , values = ~freq) %>%
+  add_pie(hole = 0.4) %>%
+  layout(title = "Top 50 approvals",  showlegend = F,
+         xaxis = list(showgrid = TRUE, zeroline = TRUE, showticklabels = TRUE),
+         yaxis = list(showgrid = TRUE, zeroline = TRUE, showticklabels = TRUE))
+
+```
+
+&nbsp;  
+
+`r p`
+
+## Past regulatory applications
+With increasing experience on [CTAs](https://eudract.ema.europa.eu/help/Default.htm#eudract/purpose_cta_ov.htm) or [INDs](https://www.fda.gov/drugs/types-applications/investigational-new-drug-ind-application), there may be associations between "success" metrics and certain formal characteristics of application materials. According to [BfArM](https://www.bfarm.de/EN/BfArM/_node.html) there are 3,647 CTA application for 2014-2018 in Germany and according to EMA there are [132,700](https://eudract.ema.europa.eu/docs/statistics/EudraCT_Statistics_2019/EudraCT_Public_Report_Stats_Oct_2019.pdf) CTA applications submitted to the EudraCT database in total.
+
+
+```{r fig.width=8, fig.height=8, eval=TRUE, include=TRUE, results=TRUE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+library("dplyr")
+library("plotly")
+year <- c(2014, 2015, 2016, 2017, 2018)
+phase.1 <- c(221, 224, 207, 203, 171)
+phase.2 <- c(270, 226, 226, 233, 220)
+phase.3 <- c(289, 297, 243, 234, 263)
+phase.4 <- c(84, 100, 39, 38, 40)
+
+BfArM.df <- data.frame(matrix(nrow=5, ncol=0)) 
+BfArM.df[['Year']] <- year
+BfArM.df[['Phase 1']] <- phase.1
+BfArM.df[['Phase 2']] <- phase.2
+BfArM.df[['Phase 3']] <- phase.3
+BfArM.df[['Phase 4']] <- phase.4
+
+# BfArM.df
+
+# Get Manufacturer
+
+p <- plot_ly(x = ~year, y = ~phase.1, type = 'bar', name = 'Phase 1') %>%
+  add_trace(y = ~phase.2, name = 'Phase 2') %>%
+  add_trace(y = ~phase.3, name = 'Phase 3') %>%
+  add_trace(y = ~phase.4, name = 'Phase 4') %>%
+  layout(yaxis = list(title = 'Count'), barmode = 'stack')
+
+# Create a shareable link to your chart
+# Set up API credentials: https://plot.ly/r/getting-started
+# chart_link = api_create(p, filename="pie-donut")
+# chart_link
+```
+
+`r p`
+
+Unfortunately, as @wong2019estimation have demonstrated that the estimation of "success rate" is not without sophisticated complexities. The most dramatic barrier is that the actual data is behind paywalls, which severely limits research ethicists like me who suffer from scarce resources and high academic pressure to produce findings that "sell".
+
+
+<!---
+For further information, please refer directly to source of origin [BfArM 2019](https://www.bfarm.de/DE/Arzneimittel/Arzneimittelzulassung/KlinischePruefung/Genehmigungs-Verfahren/Statistik.html).
+
+
+
+![Please refer directly to source of origin. [BfArM 2019](https://www.bfarm.de/DE/Arzneimittel/Arzneimittelzulassung/KlinischePruefung/Genehmigungs-Verfahren/Statistik.html)](https://www.bfarm.de/SharedDocs/Bilder/Arzneimittel/klinPr/Statistik2014-2018.jpg?__blob=normal&v=3){width=450px}
+
+
+![Please refer directly to source of origin. [Pei 2019](https://www.pei.de/EN/information/license-applicants/clinical-trial-authorisation/statistics/statistics-clinical-trials-node.html)](https://www.pei.de/SharedDocs/Bilder/EN/license-applicants/overview-all-requests.jpg?__blob=thumbnail&v=10){width=450px}
+-->
+
+```{r fig.width=8, fig.height=8, eval=TRUE, include=TRUE, results=TRUE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE }
+
+
+year <- c(2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018)
+phase.1 <- c(10, 24, 27, 27, 36, 30, 33, 47, 36, 41, 48, 51, 55, 73, 53)
+phase.2 <- c(4, 43, 59, 89, 92, 79, 97, 113, 118, 96, 83, 125, 131, 117, 151)
+phase.3 <- c(10, 74, 86, 83, 73, 97, 108, 107, 100, 100, 119, 143, 141, 130, 136)
+phase.4 <- c(1, 14, 10, 11, 12, 13, 9, 13, 11, 8, 17, 8, 13, 12, 9)
+
+Pei.df <- data.frame(matrix(nrow=15, ncol=0)) 
+Pei.df[['Year']] <- year
+Pei.df[['Phase 1']] <- phase.1
+Pei.df[['Phase 2']] <- phase.2
+Pei.df[['Phase 3']] <- phase.3
+Pei.df[['Phase 4']] <- phase.4
+
+# Pei.df
+
+# Get Manufacturer
+
+p2 <- plot_ly(data=Pei.df, x = ~year, y = ~phase.1, type = 'bar', name = 'Phase 1') %>%
+  add_trace(y = ~phase.2, name = 'Phase 2') %>%
+  add_trace(y = ~phase.3, name = 'Phase 3') %>%
+  add_trace(y = ~phase.4, name = 'Phase 4') %>%
+  layout(yaxis = list(title = 'Count'), barmode = 'stack')
+
+# Create a shareable link to your chart
+# Set up API credentials: https://plot.ly/r/getting-started
+# chart_link = api_create(p, filename="pie-donut")
+# chart_link
+```
+`r p2`
+
+For further information, please refer directly to source of origin: [Pei 2019](https://www.pei.de/EN/information/license-applicants/clinical-trial-authorisation/statistics/statistics-clinical-trials-node.html). 

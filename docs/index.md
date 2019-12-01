@@ -1,7 +1,7 @@
 ---
 title: "Translational Research as a learning system"
 author: "Merlin Bittlinger"
-date: "2019-11-25"
+date: "2019-12-01"
 description: Test. Learn. Repeat.
 github-repo: RemNil/remnil.github.io
 documentclass: book

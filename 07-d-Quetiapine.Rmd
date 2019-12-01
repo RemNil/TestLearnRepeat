@@ -129,7 +129,7 @@ saveRDS(D, paste0("Quietiapine_D_", Sys.Date(), sep=".","rds"))
 
 ```{r eval=TRUE, include=TRUE, results=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 library("RISmed")
-D <- readRDS("Quietiapine_D_2019-11-24.rds")
+D <- readRDS("Quietiapine_D_2019-11-25.rds")
 y <- YearPubmed(D); r <- YearReceived(D)
 
 date(); count<-table(y)
