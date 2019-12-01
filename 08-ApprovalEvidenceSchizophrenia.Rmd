@@ -62,14 +62,14 @@ streamgraph(data= na.omit(dat), key="indication", value="n", date="year",
   sg_axis_x(3, "year", "%Y") %>%
   sg_fill_brewer("YlOrRd")# "OrRd" "Spectral", "RdYlGn", "RdYlBu", "RdGy", "RdBu", "PiYG", "PRGn", "PuOr", "BrBG" "PuOr""
 ```
-In a Stream Graph [@byron2008stacked], the volume of individual streams  is proportional to the values in each category (i.e. number of approvals per year). This plot might be useful to quickly assess "trends" in approval rate per therapeutic area over time. 
+In such a Stream Graph [@byron2008stacked], the volume of individual streams is proportional to the values in each category (i.e. number of approvals per year an therapeutic area). This plot is  useful to quickly assess "trends" in approval rate per therapeutic area over time. 
 
-For instance, if you hover over the graph, you will quickly discover that there were quite disproportionately many approvals for Arthritis lately. Shown are therapeutic indications mentioned in EPARS [@papathanasiou2016transparency]. Data freeze: 25. November 2019.
+For instance, if you hover over the graph, you will quickly discover that there were quite disproportionately many approvals for Arthritis lately. Shown are therapeutic indications mentioned in EPARS [@papathanasiou2016transparency]. Data freeze: 25. November 2019. Now imagine, we had retrospective access to the clinical trial application packages.
 
 
 ## Approvals per therapeutic area
 
-If you are more interested in "exact numbers, then here is a donut plot of the same data with a focus on the most active therapeutic areas. Note, however that the "therapeutic areas" are not necessarily on the same level of abstraction in disease ontology. All data comes with absolutely no warranty.
+If you are more interested in "exact numbers, then here is a donut plot of the same data with a focus on the most active therapeutic areas. Note, however that the "therapeutic areas" are not necessarily on the same level of abstraction in terms of  disease ontology. All data comes with absolutely no warranty.
 
 
 ```{r eval=TRUE, fig.width=8, fig.height=8, include=TRUE, results=TRUE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
@@ -130,7 +130,7 @@ p <- plot_ly(x = ~year, y = ~phase.1, type = 'bar', name = 'Phase 1') %>%
 
 `r p`
 
-Unfortunately, as @wong2019estimation have demonstrated that the estimation of "success rate" is not without sophisticated complexities. The most dramatic barrier is that the actual data is behind paywalls, which severely limits research ethicists like me who suffer from scarce resources and high academic pressure to produce findings that "sell".
+Unfortunately, as @wong2019estimation have demonstrated, the estimation of "success rates" is not without pretty sophisticated complexities. The most dramatic barrier. however, is simply that the data is not open access. This severely limits research ethicists like me who suffer from scarce resources and high academic pressure to produce findings that "sell".
 
 
 <!---
