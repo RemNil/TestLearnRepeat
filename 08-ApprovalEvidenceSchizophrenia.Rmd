@@ -138,7 +138,7 @@ p <- plot_ly(x = ~year, y = ~phase.1, type = 'bar', name = 'Phase 1') %>%
 
 `r p`
 
-Unfortunately, as @wong2019estimation have demonstrated, the estimation of "success rates" is not without pretty sophisticated complexities. The most dramatic barrier. however, is simply that the data is not open access. This severely limits research ethicists like me who suffer from scarce resources and high academic pressure to produce findings that "sell".
+Unfortunately, as @wong2019estimation have demonstrated, the estimation of "success rates" is not without pretty sophisticated complexities. The most dramatic barrier, however, is simply that the data is not open access. This severely limits research ethicists like me who suffer from scarce resources and high academic pressure to produce findings that "sell".
 
 
 <!---
