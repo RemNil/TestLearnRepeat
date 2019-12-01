@@ -101,7 +101,7 @@ p
 
 
 ## Past regulatory applications
-With increasing experience on [CTAs](https://eudract.ema.europa.eu/help/Default.htm#eudract/purpose_cta_ov.htm) or [INDs](https://www.fda.gov/drugs/types-applications/investigational-new-drug-ind-application), there may be associations between "success" metrics and certain formal characteristics of application materials. According to [BfArM](https://www.bfarm.de/EN/BfArM/_node.html) there are 3,647 CTA application for 2014-2018 in Germany and according to EMA there are [132,700](https://eudract.ema.europa.eu/docs/statistics/EudraCT_Statistics_2019/EudraCT_Public_Report_Stats_Oct_2019.pdf) CTA applications submitted to the EudraCT database in total. What great potential to learn from past experience!
+With increasing experience on [CTAs](https://eudract.ema.europa.eu/help/Default.htm#eudract/purpose_cta_ov.htm) or [INDs](https://www.fda.gov/drugs/types-applications/investigational-new-drug-ind-application), there may be associations between "success" metrics and certain formal characteristics of application materials. According to [BfArM](https://www.bfarm.de/EN/BfArM/_node.html) there are 3,647 CTA applications for 2014-2018 in Germany and according to EMA there are [132,700](https://eudract.ema.europa.eu/docs/statistics/EudraCT_Statistics_2019/EudraCT_Public_Report_Stats_Oct_2019.pdf) CTA applications submitted to the EudraCT database in total. What great potential to learn from past experience!
 
 
 ```{r fig.width=8, fig.height=8, eval=TRUE, include=TRUE, results=TRUE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
