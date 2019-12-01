@@ -1,4 +1,4 @@
-# EU Approved medicines 
+# EMA approved medicines 
 How do we figure out how many clinical trials likely failed due to bad methodological [design](https://www.youtube.com/watch?v=hDcedskQy60)? If you have any idea or suggestion, please leave a comment using the annotation function on this website.
 
 ```{r eval=TRUE, include=TRUE, results=TRUE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
