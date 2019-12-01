@@ -72,17 +72,17 @@ For instance, if you hover over the graph, you will quickly discover that there 
 If you are more interested in "exact numbers, then here is a donut plot of the same data with a focus on the most active therapeutic areas. Note, however that the "therapeutic areas" are not necessarily on the same level of abstraction in terms of  disease ontology. All data comes with absolutely no warranty.
 
 
-```{r eval=TRUE, fig.width=6, fig.height=6, include=TRUE, results=TRUE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+```{r eval=TRUE, fig.width=7, fig.height=7, include=TRUE, results=TRUE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
 freq.tab <- data.frame(plyr::count(epar, 'indication'))
 colnames(freq.tab)  <- c("Therapeutic area", "Number of approvals")
 #kable(freq.tab[order(freq.tab[2], decreasing = TRUE),][1:7,])
 
 m <- list(
-  l = 50,
-  r = 50,
-  b = 50,
-  t = 180,
+  l = 80,
+  r = 80,
+  b = 80,
+  t = 170,
   pad = 4
 )
 
@@ -93,7 +93,7 @@ p <- freq.tab[order(freq.tab[2], decreasing = TRUE),][1:50,] %>%
   layout(title = "Top 50 EMA approvals by condition",  showlegend = F,
          xaxis = list(showgrid = TRUE, zeroline = TRUE, showticklabels = TRUE),
          yaxis = list(showgrid = TRUE, zeroline = TRUE, showticklabels = TRUE))%>%
-  layout(autosize = F, width = 600, height = 600, margin = m)
+  layout(autosize = F, width = 640, height = 680, margin = m)
 p
 ```
 
