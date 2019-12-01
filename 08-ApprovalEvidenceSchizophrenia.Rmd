@@ -1,5 +1,5 @@
 # EMA approved medicines 
-How do we figure out how many clinical trials likely failed due to bad methodological [design](https://www.youtube.com/watch?v=hDcedskQy60)? If you have any idea or suggestion, please leave a comment using the annotation function on this website.
+How do we figure out how many clinical trials likely failed due to bad methodological [design](https://www.youtube.com/watch?v=hDcedskQy60)? While a was pondering the thought, I came up with the strem graph below. It shows the total amount pf püast experiences that we could use as research ethicists to learn from. If you have any idea or suggestion, please leave a comment using the annotation function on this website.
 
 ```{r  fig.width=7, fig.height=7, eval=TRUE, include=TRUE, results=TRUE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
@@ -62,7 +62,7 @@ streamgraph(data= na.omit(dat), key="indication", value="n", date="year",
   sg_axis_x(3, "year", "%Y") %>%
   sg_fill_brewer("YlOrRd")# "OrRd" "Spectral", "RdYlGn", "RdYlBu", "RdGy", "RdBu", "PiYG", "PRGn", "PuOr", "BrBG" "PuOr""
 ```
-In such a Stream Graph [@byron2008stacked], the volume of individual streams is proportional to the values in each category (i.e. number of approvals per year an therapeutic area). This plot is  useful to quickly assess "trends" in approval rate per therapeutic area over time. 
+In such a Stream Graph [@byron2008stacked], the volume of individual streams is proportional to the values in each category (i.e. number of approvals per year and therapeutic area). This plot is  useful to quickly assess "trends" in approval rate per therapeutic area over time. 
 
 For instance, if you hover over the graph, you will quickly discover that there were quite disproportionately many approvals for Arthritis lately. Shown are therapeutic indications mentioned in EPARS [@papathanasiou2016transparency]. Data freeze: 25. November 2019. Now imagine, we had retrospective access to the clinical trial application packages.
 
