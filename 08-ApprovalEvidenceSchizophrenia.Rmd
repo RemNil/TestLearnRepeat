@@ -1,5 +1,5 @@
 # EMA approved medicines 
-How do we figure out how many clinical trials likely failed due to bad methodological [design](https://www.youtube.com/watch?v=hDcedskQy60)? While I was pondering the thought, I came up with the stream graph below. It shows the total amount of past experiences that we could use as research ethicists to learn from. If you have any idea or suggestion, please leave a comment using the annotation function on this website.
+How do we figure out how many clinical trials likely failed due to bad methodological [design](https://www.youtube.com/watch?v=hDcedskQy60)? While I was pondering the thought, I came up with the stream graph below. It shows the total amount of past experiences that we could use as research ethicists to learn from. If you have any idea or suggestion, please leave a comment using the annotation function on this website (simply select a text passage with the mouse).
 
 ```{r  fig.width=9, fig.height=6, eval=TRUE, include=TRUE, results=TRUE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
